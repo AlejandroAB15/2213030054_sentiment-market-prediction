@@ -17,3 +17,15 @@
 
 # if __name__ == "__main__":
 #     main()
+
+from adquisicion.fuentes import indices
+
+if __name__ == "__main__":
+    start_date = "2025-01-01"
+    end_date = "2026-01-31"
+
+    print("Descargando índices bursátiles...")
+    datos_indices = indices.descargar_indices(start_date, end_date, guardar_csv=True)
+
+    for nombre, df in datos_indices.items():
+        print(f"{nombre}: {len(df)} registros descargados y guardados en CSV")
