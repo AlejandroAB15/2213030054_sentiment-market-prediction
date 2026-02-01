@@ -7,6 +7,10 @@ ENV/
 # Python cache
 __pycache__/
 *.pyc
+*.pyo
+
+# Archivos históricos y temporales
+data/
 
 # Jupyter
 .ipynb_checkpoints/
