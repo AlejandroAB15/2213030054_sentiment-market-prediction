@@ -3,6 +3,10 @@ import json
 import time
 from lxml import html
 from adquisicion.utils.xpath import get_text
+from utils.logger import get_logger
+from utils.logging_utils import log_and_print
+
+logger = get_logger(__name__)
 
 FUENTE = "el_universal"
 
@@ -35,15 +39,21 @@ HEADERS = {
 DELAY = 1.5
 BATCH_SIZE = 25
 OFFSET = 150
-MAX_BATCHES = 12 
+MAX_BATCHES = 12
+START_INDEX = 5
 
 def fetch_base():
     noticias = []
 
     PARAMS["batchsize"] = BATCH_SIZE
 
+    log_and_print(
+        logger,
+        "[EL_UNIVERSAL] Iniciando recolección inicial"
+    )
+
     for batch in range(MAX_BATCHES):
-        PARAMS["endindex"] = batch * OFFSET
+        PARAMS["endindex"] = START_INDEX + batch * OFFSET
 
         try:
             response = requests.get(
@@ -59,18 +69,26 @@ def fetch_base():
             data = json.loads(json_str)
 
         except Exception as e:
-            print(f"[EL_UNIVERSAL] Error en batch {batch}: {e}")
+            log_and_print(
+                logger,
+                f"[EL_UNIVERSAL] Error en batch {batch}: {e}",
+                level="error"
+            )
             continue
 
         items = data.get("items", [])
-        
+
         if not items:
-            print(f"[EL_UNIVERSAL] Batch {batch} no trajo items, fin anticipado")
+            log_and_print(
+                logger,
+                f"[EL_UNIVERSAL] Batch {batch + 1} sin items, fin anticipado",
+                level="warning"
+            )
             break
 
         for item in items:
             url = "https://www.eluniversal.com.mx" + item.get("link", "")
-            noticia = {
+            noticias.append({
                 "fuente": FUENTE,
                 "titulo": item.get("title"),
                 "subtitulo": None,
@@ -78,16 +96,22 @@ def fetch_base():
                 "fecha": None,
                 "url": url,
                 "contenido": None
-            }
-            noticias.append(noticia)
+            })
 
-        print(f"[EL_UNIVERSAL] Batch {batch+1}/{MAX_BATCHES} -> {len(items)} noticias obtenidas")
+        log_and_print(
+            logger,
+            f"[EL_UNIVERSAL] Batch {batch + 1}/{MAX_BATCHES} completado "
+            f"({len(items)} noticias)"
+        )
+
         time.sleep(DELAY)
 
-    print(f"[EL_UNIVERSAL] Total noticias obtenidas: {len(noticias)}")
+    log_and_print(
+        logger,
+        f"[EL_UNIVERSAL] Total noticias obtenidas: {len(noticias)}"
+    )
 
     return noticias
-
 
 
 def fetch_contenido(noticia):
@@ -108,11 +132,11 @@ def fetch_contenido(noticia):
         )
 
         fecha = None
-
         res = tree.xpath(
-            '//div[contains(@class,"sc__author")]//span[contains(@class,"sc__author--date")]/text()[normalize-space()]'
+            '//div[contains(@class,"sc__author")]'
+            '//span[contains(@class,"sc__author--date")]/text()[normalize-space()]'
         )
-        
+
         for txt in res:
             if "/" in txt and txt.strip():
                 fecha = txt.strip().split()[0]
@@ -125,6 +149,11 @@ def fetch_contenido(noticia):
         )
 
         if not sections:
+            log_and_print(
+                logger,
+                f"[EL_UNIVERSAL] Sin secciones: {noticia['url']}",
+                level="warning"
+            )
             return noticia
 
         parrafos = sections[0].xpath(
@@ -144,7 +173,11 @@ def fetch_contenido(noticia):
         time.sleep(DELAY)
 
     except Exception as e:
-        print(f"[EL_UNIVERSAL] Error contenido: {noticia['url']} -> {e}")
+        log_and_print(
+            logger,
+            f"[EL_UNIVERSAL] Error contenido: {noticia['url']} -> {e}",
+            level="error"
+        )
         noticia["contenido"] = None
 
     return noticia
