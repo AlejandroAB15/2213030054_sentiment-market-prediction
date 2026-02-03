@@ -75,7 +75,7 @@ def fetch_base():
                 "titulo": item.get("title"),
                 "subtitulo": None,
                 "autor": item.get("creator"),
-                "fecha": item.get("pubdate"),
+                "fecha": None,
                 "url": url,
                 "contenido": None
             }
@@ -106,6 +106,19 @@ def fetch_contenido(noticia):
             tree,
             '//div[contains(@class,"sc__header")]//h2[contains(@class,"subTitle")]/text()'
         )
+
+        fecha = None
+
+        res = tree.xpath(
+            '//div[contains(@class,"sc__author")]//span[contains(@class,"sc__author--date")]/text()[normalize-space()]'
+        )
+        
+        for txt in res:
+            if "/" in txt and txt.strip():
+                fecha = txt.strip().split()[0]
+                break
+
+        noticia["fecha"] = fecha
 
         sections = tree.xpath(
             '//div[contains(@class,"sc") and contains(@class,"pl-3")]//section'
