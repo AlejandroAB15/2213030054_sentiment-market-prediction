@@ -132,11 +132,14 @@ def fetch_contenido(noticia):
         )
 
         fecha = None
+
         res = tree.xpath(
             '//div[contains(@class,"sc__author")]'
             '//span[contains(@class,"sc__author--date")]/text()[normalize-space()]'
         )
 
+        ## El <span> de fecha tiene el formato: | dd/mm/aaaa |
+        ## Para asegurar obtener la fecha se itera por los elementos de la lista devuelta y se extrae solo fecha
         for txt in res:
             if "/" in txt and txt.strip():
                 fecha = txt.strip().split()[0]
@@ -151,7 +154,7 @@ def fetch_contenido(noticia):
         if not sections:
             log_and_print(
                 logger,
-                f"[EL_UNIVERSAL] Sin secciones: {noticia['url']}",
+                f"[EL_UNIVERSAL] No se encontro la sección principal: {noticia['url']}",
                 level="warning"
             )
             return noticia
@@ -175,7 +178,7 @@ def fetch_contenido(noticia):
     except Exception as e:
         log_and_print(
             logger,
-            f"[EL_UNIVERSAL] Error contenido: {noticia['url']} -> {e}",
+            f"[EL_UNIVERSAL] Error en contenido: {noticia['url']} -> {e}",
             level="error"
         )
         noticia["contenido"] = None

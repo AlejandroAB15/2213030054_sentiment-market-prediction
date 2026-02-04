@@ -44,11 +44,6 @@ def fetch_base():
             START_PAGE + offset + PAGINAS_POR_BLOQUE
         )
 
-        log_and_print(
-            logger,
-            f"[EL_PAIS] Bloque {i + 1}/{total_bloques} iniciado"
-        )
-
         total_articulos_bloque = 0
 
         for pagina in paginas:
@@ -77,10 +72,6 @@ def fetch_base():
                 continue
 
             for articulo in articulos:
-                link = articulo.xpath('.//h2//a/@href')
-                if not link:
-                    continue
-
                 noticias.append({
                     "fuente": FUENTE,
                     "titulo": get_text(articulo, './/h2//a/text()'),
@@ -93,7 +84,7 @@ def fetch_base():
                         articulo,
                         './/div[contains(@class,"c_f")]/text()'
                     ),
-                    "url": link[0],
+                    "url": get_text(articulo, './/h2//a/@href'),
                     "contenido": None
                 })
 
