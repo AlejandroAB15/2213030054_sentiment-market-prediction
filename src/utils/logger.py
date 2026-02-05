@@ -11,7 +11,7 @@ def setup_logger(
     level=logging.INFO,
     max_bytes=5 * 1024 * 1024,
     backup_count=3
-): 
+):
 
     formatter = logging.Formatter(
         "%(asctime)s | %(levelname)s | %(name)s | %(message)s",
@@ -33,12 +33,4 @@ def setup_logger(
     file_handler.setFormatter(formatter)
     file_handler.setLevel(level)
 
-    console_handler = logging.StreamHandler()
-    console_handler.setFormatter(formatter)
-    console_handler.setLevel(logging.INFO)
-
     root_logger.addHandler(file_handler)
-    root_logger.addHandler(console_handler)
-
-def get_logger(name: str):
-    return logging.getLogger(name)
