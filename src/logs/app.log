@@ -1,0 +1,66 @@
+2026-02-05 13:03:46 | INFO | adquisicion.run_adquisicion | [ADQUISICIÓN] Inicio del proceso
+2026-02-05 13:03:46 | INFO | adquisicion.run_adquisicion | [ADQUISICIÓN] Fetch base de EL UNIVERSAL
+
+2026-02-05 13:03:46 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Iniciando recolección inicial
+2026-02-05 13:03:47 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 1/12 completado (25 noticias)
+2026-02-05 13:03:49 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 2/12 completado (25 noticias)
+2026-02-05 13:03:51 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 3/12 completado (25 noticias)
+2026-02-05 13:03:53 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 4/12 completado (25 noticias)
+2026-02-05 13:03:55 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 5/12 completado (25 noticias)
+2026-02-05 13:03:57 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 6/12 completado (25 noticias)
+2026-02-05 13:03:59 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 7/12 completado (25 noticias)
+2026-02-05 13:04:01 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 8/12 completado (25 noticias)
+2026-02-05 13:04:03 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 9/12 completado (25 noticias)
+2026-02-05 13:04:05 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 10/12 completado (25 noticias)
+2026-02-05 13:04:07 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 11/12 completado (25 noticias)
+2026-02-05 13:04:09 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 12/12 completado (25 noticias)
+2026-02-05 13:04:10 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Total noticias obtenidas: 300
+2026-02-05 13:04:10 | INFO | adquisicion.fuentes.el_universal | 
+[EL_UNIVERSAL] Iniciando fetch de contenido en paralelo:  (4 workers)
+2026-02-05 13:07:58 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Fetch de contenido completado: (300 noticias)
+2026-02-05 13:07:58 | INFO | adquisicion.utils.limpieza | [LIMPIEZA][EL_UNIVERSAL] Iniciando proceso (rango 2025-01-01 → 2026-01-31)
+2026-02-05 13:07:58 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias procesadas: 300
+2026-02-05 13:07:58 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias válidas: 271
+2026-02-05 13:07:58 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas sin fecha válida: 0
+2026-02-05 13:07:58 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas fuera de rango: 29
+2026-02-05 13:07:58 | INFO | adquisicion.run_adquisicion | 
+[ADQUISICIÓN] Fetch base de EL PAÍS
+2026-02-05 13:07:58 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Iniciando recolección inicial
+2026-02-05 13:08:14 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 1/11 completado (69 artículos)
+2026-02-05 13:08:28 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 2/11 completado (34 artículos)
+2026-02-05 13:08:44 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 3/11 completado (66 artículos)
+2026-02-05 13:09:02 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 4/11 completado (76 artículos)
+2026-02-05 13:09:20 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 5/11 completado (78 artículos)
+2026-02-05 13:09:35 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 6/11 completado (44 artículos)
+2026-02-05 13:09:52 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 7/11 completado (57 artículos)
+2026-02-05 13:10:09 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 8/11 completado (52 artículos)
+2026-02-05 13:10:27 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 9/11 completado (74 artículos)
+2026-02-05 13:10:43 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 10/11 completado (55 artículos)
+2026-02-05 13:11:00 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 11/11 completado (48 artículos)
+2026-02-05 13:11:00 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Total noticias obtenidas: 653
+2026-02-05 13:11:00 | INFO | adquisicion.utils.limpieza | [LIMPIEZA][EL_PAIS] Iniciando proceso (rango 2025-01-01 → 2026-01-31)
+2026-02-05 13:11:00 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias procesadas: 653
+2026-02-05 13:11:00 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias válidas: 616
+2026-02-05 13:11:00 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas sin fecha válida: 0
+2026-02-05 13:11:00 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas fuera de rango: 37
+2026-02-05 13:11:00 | INFO | adquisicion.fuentes.el_pais | 
+[EL_PAIS] Iniciando fetch de contenido en paralelo: (4 workers)
+2026-02-05 13:18:38 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Fetch de contenido completado: (616 noticias)
+2026-02-05 13:18:38 | INFO | adquisicion.run_adquisicion | 
+[ADQUISICIÓN] Inicia índices bursátiles
+2026-02-05 13:18:38 | INFO | adquisicion.fuentes.indices | [INDICES] Descargando índices desde 2025-01-01 hasta 2026-01-31
+2026-02-05 13:18:38 | INFO | adquisicion.fuentes.indices | [INDICES] Descargando DJI (^DJI)
+2026-02-05 13:18:39 | INFO | adquisicion.fuentes.indices | [INDICES] DJI guardado en data/raws\DJI_historico.csv
+2026-02-05 13:18:39 | INFO | adquisicion.fuentes.indices | [INDICES] Descargando NASDAQ (^IXIC)
+2026-02-05 13:18:39 | INFO | adquisicion.fuentes.indices | [INDICES] NASDAQ guardado en data/raws\NASDAQ_historico.csv
+2026-02-05 13:18:39 | INFO | adquisicion.fuentes.indices | [INDICES] Descargando SP500 (^GSPC)
+2026-02-05 13:18:39 | INFO | adquisicion.fuentes.indices | [INDICES] SP500 guardado en data/raws\SP500_historico.csv
+2026-02-05 13:18:39 | INFO | adquisicion.fuentes.indices | [INDICES] Descarga completada (3 índices)
+2026-02-05 13:18:39 | INFO | adquisicion.run_adquisicion | 
+[ADQUISICIÓN][ÍNDICES] DJI: 270 registros almacenados
+2026-02-05 13:18:39 | INFO | adquisicion.run_adquisicion | 
+[ADQUISICIÓN][ÍNDICES] NASDAQ: 270 registros almacenados
+2026-02-05 13:18:39 | INFO | adquisicion.run_adquisicion | 
+[ADQUISICIÓN][ÍNDICES] SP500: 270 registros almacenados
+2026-02-05 13:18:39 | INFO | adquisicion.run_adquisicion | 
+[ADQUISICIÓN] Proceso finalizado correctamente

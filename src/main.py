@@ -2,7 +2,7 @@ from adquisicion.run_adquisicion import run_adquisicion
 
 
 def main():
-    print("test")
+    run_adquisicion()
 
 if __name__ == "__main__":
     main()
