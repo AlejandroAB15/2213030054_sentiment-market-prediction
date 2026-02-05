@@ -4,6 +4,7 @@ from lxml import html
 from adquisicion.utils.xpath import get_text
 from utils.logger import get_logger
 from utils.logging_utils import log_and_print
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 logger = get_logger(__name__)
 
@@ -138,3 +139,42 @@ def fetch_contenido(noticia):
         noticia["contenido"] = None
 
     return noticia
+
+def fetch_contenido_paralelo(noticias, max_workers=4):
+
+    noticias_completas = []
+
+    log_and_print(
+        logger,
+        f"\n[EL_PAIS] Iniciando fetch de contenido en paralelo: "
+        f"({max_workers} workers)"
+    )
+
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+
+        future_to_url = {
+            executor.submit(fetch_contenido, noticia): noticia["url"]
+            for noticia in noticias
+        }
+
+        for future in as_completed(future_to_url):
+            url = future_to_url[future]
+
+            try:
+                noticia = future.result()
+                noticias_completas.append(noticia)
+
+            except Exception as e:
+                log_and_print(
+                    logger,
+                    f"[EL_PAIS] Error en thread para {url}: {e}",
+                    level="error"
+                )
+
+    log_and_print(
+        logger,
+        f"[EL_PAIS] Fetch de contenido completado: "
+        f"({len(noticias_completas)} noticias)"
+    )
+
+    return noticias_completas
