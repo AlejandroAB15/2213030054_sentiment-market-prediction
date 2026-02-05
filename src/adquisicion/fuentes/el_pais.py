@@ -7,7 +7,7 @@ from utils.logging_utils import log_and_print
 
 logger = get_logger(__name__)
 
-FUENTE = "elpais"
+FUENTE = "el_pais"
 
 URL_BASE = "https://elpais.com/buscador/Trump/{}"
 DELAY = 1.2

@@ -5,6 +5,7 @@ from utils.logging_utils import log_and_print
 
 logger = get_logger(__name__)
 
+
 def limpiar_noticias_por_fecha(
     noticias: List[Dict],
     fecha_inicio: str,
@@ -13,6 +14,7 @@ def limpiar_noticias_por_fecha(
 
     inicio = datetime.strptime(fecha_inicio, "%Y-%m-%d").date()
     fin = datetime.strptime(fecha_fin, "%Y-%m-%d").date()
+
     fuente = noticias[0].get("fuente") if noticias else "desconocida"
 
     total = len(noticias)
@@ -23,7 +25,7 @@ def limpiar_noticias_por_fecha(
 
     log_and_print(
         logger,
-        f"[LIMPIEZA][{fuente.upper()}] Iniciando proceso de limpieza"
+        f"[LIMPIEZA][{fuente.upper()}] Iniciando proceso "
         f"(rango {fecha_inicio} → {fecha_fin})"
     )
 
@@ -35,7 +37,7 @@ def limpiar_noticias_por_fecha(
             continue
 
         try:
-            fecha = datetime.strptime(fecha_str, "%Y-%m-%d").date()
+            fecha = datetime.strptime(fecha_str, "%d/%m/%Y").date()
         except Exception:
             descartadas_sin_fecha += 1
             continue
@@ -45,14 +47,8 @@ def limpiar_noticias_por_fecha(
         else:
             descartadas_fuera_rango += 1
 
-    log_and_print(
-        logger,
-        f"[LIMPIEZA] Noticias procesadas: {total}"
-    )
-    log_and_print(
-        logger,
-        f"[LIMPIEZA] Noticias válidas: {len(noticias_limpias)}"
-    )
+    log_and_print(logger, f"[LIMPIEZA] Noticias procesadas: {total}")
+    log_and_print(logger, f"[LIMPIEZA] Noticias válidas: {len(noticias_limpias)}")
     log_and_print(
         logger,
         f"[LIMPIEZA] Descartadas sin fecha válida: {descartadas_sin_fecha}"

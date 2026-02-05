@@ -19,7 +19,7 @@ def run_adquisicion():
 
     log_and_print(logger, "[ADQUISICIÓN] Inicio del proceso")
 
-    log_and_print(logger, "[ADQUISICIÓN] Fetch base de EL UNIVERSAL")
+    log_and_print(logger, "[ADQUISICIÓN] Fetch base de EL UNIVERSAL\n")
     noticias_universal = fetch_universal()
 
     universal_path = RAW_DIR / "el_universal.json"
@@ -31,16 +31,11 @@ def run_adquisicion():
             indent=2
         )
 
-    log_and_print(
-        logger,
-        f"[ADQUISICIÓN][EL_UNIVERSAL] "
-        f"{len(noticias_universal)} noticias almacenadas"
-    )
 
-    log_and_print(logger, "[ADQUISICIÓN] Fetch base de EL PAÍS")
+    log_and_print(logger, "\n[ADQUISICIÓN] Fetch base de EL PAÍS")
     noticias_pais = fetch_pais()
 
-    noticias_pais_limpias = limpiar_noticias_por_fecha(
+    noticias_pais = limpiar_noticias_por_fecha(
         noticias_pais,
         FECHA_INICIO,
         FECHA_FIN
@@ -49,7 +44,7 @@ def run_adquisicion():
     pais_path = RAW_DIR / "el_pais.json"
     with open(pais_path, "w", encoding="utf-8") as f:
         json.dump(
-            noticias_pais_limpias,
+            noticias_pais,
             f,
             ensure_ascii=False,
             indent=2
@@ -57,7 +52,7 @@ def run_adquisicion():
 
     log_and_print(
         logger,
-        "[ADQUISICIÓN] Inicia índices bursátiles"
+        "\n[ADQUISICIÓN] Inicia índices bursátiles"
     )
 
     datos_indices = indices.descargar_indices(
@@ -69,11 +64,11 @@ def run_adquisicion():
     for nombre, df in datos_indices.items():
         log_and_print(
             logger,
-            f"[ADQUISICIÓN][ÍNDICES] {nombre}: "
+            f"\n[ADQUISICIÓN][ÍNDICES] {nombre}: "
             f"{len(df)} registros almacenados"
         )
 
     log_and_print(
         logger,
-        "[ADQUISICIÓN] Proceso finalizado correctamente"
+        "\n[ADQUISICIÓN] Proceso finalizado correctamente"
     )
