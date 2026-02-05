@@ -34,3 +34,6 @@ def setup_logger(
     file_handler.setLevel(level)
 
     root_logger.addHandler(file_handler)
+
+def get_logger(name: str) -> logging.Logger:
+    return logging.getLogger(name)
