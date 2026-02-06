@@ -64,3 +64,31 @@
 [ADQUISICIÓN][ÍNDICES] SP500: 270 registros almacenados
 2026-02-05 13:18:39 | INFO | adquisicion.run_adquisicion | 
 [ADQUISICIÓN] Proceso finalizado correctamente
+2026-02-06 16:10:21 | INFO | adquisicion.run_adquisicion | [ADQUISICIÓN] Inicio del proceso
+2026-02-06 16:10:21 | INFO | adquisicion.run_adquisicion | 
+[ADQUISICIÓN] Fetch base de INFOBAE
+2026-02-06 16:10:21 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Iniciando recolección inicial
+2026-02-06 16:10:21 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 1/12 completado (25 noticias)
+2026-02-06 16:10:23 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 2/12 completado (25 noticias)
+2026-02-06 16:10:25 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 3/12 completado (25 noticias)
+2026-02-06 16:10:27 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 4/12 completado (25 noticias)
+2026-02-06 16:10:29 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 5/12 completado (25 noticias)
+2026-02-06 16:10:31 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 6/12 completado (25 noticias)
+2026-02-06 16:10:33 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 7/12 completado (25 noticias)
+2026-02-06 16:10:35 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 8/12 completado (25 noticias)
+2026-02-06 16:10:37 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 9/12 completado (25 noticias)
+2026-02-06 16:10:39 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 10/12 completado (25 noticias)
+2026-02-06 16:10:41 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 11/12 completado (25 noticias)
+2026-02-06 16:10:43 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 12/12 completado (25 noticias)
+2026-02-06 16:10:45 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Total noticias obtenidas: 300
+2026-02-06 16:10:45 | INFO | adquisicion.utils.limpieza | [LIMPIEZA][INFOBAE] Iniciando proceso (rango 2025-01-01 → 2026-01-31)
+2026-02-06 16:10:45 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias procesadas: 300
+2026-02-06 16:10:45 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias válidas: 247
+2026-02-06 16:10:45 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas sin fecha válida: 0
+2026-02-06 16:10:45 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas fuera de rango: 53
+2026-02-06 16:10:45 | INFO | adquisicion.fuentes.infobae | 
+[INFOBAE] Iniciando fetch de contenido en paralelo (4 workers)
+2026-02-06 16:10:45 | WARNING | adquisicion.fuentes.infobae | [INFOBAE] No se encontró el body: https://www.infobae.com/mexico/2026/01/29/la-mananera-de-hoy-jueves-29-de-enero-en-vivo/
+2026-02-06 16:12:46 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Fetch de contenido completado (247 noticias)
+2026-02-06 16:12:46 | INFO | adquisicion.run_adquisicion | 
+[ADQUISICIÓN] Proceso finalizado correctamente

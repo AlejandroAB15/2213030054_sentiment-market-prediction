@@ -4,7 +4,7 @@ from utils.logger import setup_logger, get_logger
 from utils.logging_utils import log_and_print
 from adquisicion.fuentes.el_universal import ( fetch_base as fetch_universal, fetch_contenido_paralelo as contenido_universal )
 from adquisicion.fuentes.el_pais import ( fetch_base as fetch_pais, fetch_contenido_paralelo as contenido_pais )
-from adquisicion.fuentes.infobae import ( fetch_base as fetch_infobae )
+from adquisicion.fuentes.infobae import ( fetch_base as fetch_infobae, fetch_contenido_paralelo as contenido_infobae)
 from adquisicion.fuentes import indices
 from adquisicion.utils.limpieza import limpiar_noticias_por_fecha
 
@@ -62,8 +62,17 @@ def run_infobae(logger):
     log_and_print(logger, "\n[ADQUISICIÓN] Fetch base de INFOBAE")
 
     noticias_infobae = fetch_infobae()
+    
+    noticias_infobae = limpiar_noticias_por_fecha(
+        noticias_infobae,
+        FECHA_INICIO,
+        FECHA_FIN
+    )
+
+    noticias_infobae = contenido_infobae(noticias_infobae)
 
     infobae_path = RAW_DIR / "infobae.json"
+
     with open(infobae_path, "w", encoding="utf-8") as f:
         json.dump(
             noticias_infobae,
