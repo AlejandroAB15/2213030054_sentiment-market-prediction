@@ -41,10 +41,10 @@ HEADERS = {
 
 DELAY = 1.5
 
-BATCH_SIZE = 25
-OFFSET = 150
-MAX_BATCHES = 12
 START_INDEX = 5
+OFFSET = 400
+MAX_BATCHES = 12
+BATCH_SIZE = 25
 
 TEXTO_PROMOCIONAL = ("Ahora puede seguirnos en Facebook y en nuestro WhatsApp Channel")
 
