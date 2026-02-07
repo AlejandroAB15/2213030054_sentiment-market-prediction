@@ -5,6 +5,7 @@ from utils.logging_utils import log_and_print
 from adquisicion.fuentes.el_universal import ( fetch_base as fetch_universal, fetch_contenido_paralelo as contenido_universal )
 from adquisicion.fuentes.el_pais import ( fetch_base as fetch_pais, fetch_contenido_paralelo as contenido_pais )
 from adquisicion.fuentes.infobae import ( fetch_base as fetch_infobae, fetch_contenido_paralelo as contenido_infobae)
+from adquisicion.fuentes.el_financiero import ( fetch_base as fetch_financiero, fetch_contenido_paralelo as contenido_financiero)
 from adquisicion.fuentes import indices
 from adquisicion.utils.limpieza import limpiar_noticias_por_fecha
 
@@ -81,6 +82,30 @@ def run_infobae(logger):
             indent=2
         )
 
+def run_el_financiero(logger):
+
+    log_and_print(logger, "\n[ADQUISICIÓN] Fetch base de EL_FINANCIERO")
+
+    noticias_financiero = fetch_financiero()
+    
+    noticias_financiero = limpiar_noticias_por_fecha(
+        noticias_financiero,
+        FECHA_INICIO,
+        FECHA_FIN
+    )
+
+    noticias_financiero = contenido_financiero(noticias_financiero)
+
+    el_financiero_path = RAW_DIR / "el_financiero.json"
+
+    with open(el_financiero_path, "w", encoding="utf-8") as f:
+        json.dump(
+            noticias_financiero,
+            f,
+            ensure_ascii=False,
+            indent=2
+        )
+
 def run_indices(logger):
     log_and_print(
         logger,
@@ -109,7 +134,8 @@ def run_adquisicion():
     # run_el_universal(logger)
     # run_el_pais(logger)
     # run_indices(logger)
-    run_infobae(logger)
+    # run_infobae(logger)
+    run_el_financiero(logger)
 
     log_and_print(
         logger,
