@@ -134,7 +134,7 @@ def fetch_contenido(noticia):
             if p.text_content().strip()
         ]
 
-        contenido_lista = contenido_lista[:-1]  # El último parrafo no suele ser útil
+        contenido_lista = contenido_lista[:-1]  # Al igual que en el universal, el último parrafo no suele ser útil
 
         noticia["contenido"] = " ".join(contenido_lista) if contenido_lista else None
 

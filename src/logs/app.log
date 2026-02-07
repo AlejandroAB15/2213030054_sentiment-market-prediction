@@ -119,3 +119,39 @@
 2026-02-06 16:31:11 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Fetch de contenido completado (274 noticias)
 2026-02-06 16:31:11 | INFO | adquisicion.run_adquisicion | 
 [ADQUISICIÓN] Proceso finalizado correctamente
+2026-02-07 16:16:56 | INFO | adquisicion.run_adquisicion | [ADQUISICIÓN] Inicio del proceso
+2026-02-07 16:16:56 | INFO | adquisicion.run_adquisicion | 
+[ADQUISICIÓN] Fetch base de EL_FINANCIERO
+2026-02-07 16:16:56 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Iniciando recolección inicial
+2026-02-07 16:16:57 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 1/20 completado(30 noticias)
+2026-02-07 16:16:59 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 2/20 completado(30 noticias)
+2026-02-07 16:17:00 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 3/20 completado(30 noticias)
+2026-02-07 16:17:02 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 4/20 completado(30 noticias)
+2026-02-07 16:17:04 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 5/20 completado(30 noticias)
+2026-02-07 16:17:06 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 6/20 completado(30 noticias)
+2026-02-07 16:17:08 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 7/20 completado(30 noticias)
+2026-02-07 16:17:10 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 8/20 completado(30 noticias)
+2026-02-07 16:17:12 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 9/20 completado(30 noticias)
+2026-02-07 16:17:14 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 10/20 completado(30 noticias)
+2026-02-07 16:17:16 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 11/20 completado(30 noticias)
+2026-02-07 16:17:18 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 12/20 completado(30 noticias)
+2026-02-07 16:17:20 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 13/20 completado(30 noticias)
+2026-02-07 16:17:22 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 14/20 completado(30 noticias)
+2026-02-07 16:17:24 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 15/20 completado(30 noticias)
+2026-02-07 16:17:26 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 16/20 completado(30 noticias)
+2026-02-07 16:17:28 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 17/20 completado(30 noticias)
+2026-02-07 16:17:30 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 18/20 completado(30 noticias)
+2026-02-07 16:17:32 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 19/20 completado(30 noticias)
+2026-02-07 16:17:34 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 20/20 completado(30 noticias)
+2026-02-07 16:17:36 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Total noticias obtenidas: 553
+2026-02-07 16:17:36 | INFO | adquisicion.utils.limpieza | [LIMPIEZA][EL_FINANCIERO] Iniciando proceso (rango 2025-01-01 → 2026-01-31)
+2026-02-07 16:17:36 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias procesadas: 553
+2026-02-07 16:17:36 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias válidas: 519
+2026-02-07 16:17:36 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas sin fecha válida: 0
+2026-02-07 16:17:36 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas fuera de rango: 34
+2026-02-07 16:17:36 | INFO | adquisicion.fuentes.el_financiero | 
+[EL_FINANCIERO] Fetch contenido paralelo (4 workers)
+2026-02-07 16:23:13 | ERROR | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Error contenido: https://www.elfinanciero.com.mx/monterrey/2025/01/10/araceli-gonzalez-la-llegada-de-trump-y-los-retos-para-mexico/ -> list index out of range
+2026-02-07 16:23:13 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Contenido completado (519)
+2026-02-07 16:23:13 | INFO | adquisicion.run_adquisicion | 
+[ADQUISICIÓN] Proceso finalizado correctamente
