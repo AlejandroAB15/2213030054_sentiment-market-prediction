@@ -15,7 +15,7 @@ RAW_DIR.mkdir(parents=True, exist_ok=True)
 FECHA_INICIO = "2025-01-01"
 FECHA_FIN = "2026-01-31"
 
-def run_el_universal(logger):
+def _run_el_universal(logger):
     log_and_print(logger, "[ADQUISICIÓN] Fetch base de EL UNIVERSAL\n")
 
     noticias_universal = fetch_universal()
@@ -36,7 +36,7 @@ def run_el_universal(logger):
             indent=2
         )
 
-def run_el_pais(logger):
+def _run_el_pais(logger):
     log_and_print(logger, "\n[ADQUISICIÓN] Fetch base de EL PAÍS")
 
     noticias_pais = fetch_pais()
@@ -58,7 +58,7 @@ def run_el_pais(logger):
             indent=2
         )
 
-def run_infobae(logger):
+def _run_infobae(logger):
 
     log_and_print(logger, "\n[ADQUISICIÓN] Fetch base de INFOBAE")
 
@@ -82,7 +82,7 @@ def run_infobae(logger):
             indent=2
         )
 
-def run_el_financiero(logger):
+def _run_el_financiero(logger):
 
     log_and_print(logger, "\n[ADQUISICIÓN] Fetch base de EL_FINANCIERO")
 
@@ -106,7 +106,7 @@ def run_el_financiero(logger):
             indent=2
         )
 
-def run_indices(logger):
+def _run_indices(logger):
     log_and_print(
         logger,
         "\n[ADQUISICIÓN] Inicia índices bursátiles"
@@ -131,11 +131,11 @@ def run_adquisicion():
 
     log_and_print(logger, "[ADQUISICIÓN] Inicio del proceso")
 
-    # run_el_universal(logger)
-    # run_el_pais(logger)
-    # run_indices(logger)
-    # run_infobae(logger)
-    run_el_financiero(logger)
+    _run_el_universal(logger)
+    _run_el_pais(logger)
+    _run_indices(logger)
+    _run_infobae(logger)
+    _run_el_financiero(logger)
 
     log_and_print(
         logger,

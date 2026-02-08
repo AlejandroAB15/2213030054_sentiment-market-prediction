@@ -105,7 +105,7 @@ def fetch_base():
 
     return noticias
 
-def fetch_contenido(noticia):
+def _fetch_contenido(noticia):
     try:
         response = requests.get(
             noticia["url"],
@@ -153,7 +153,7 @@ def fetch_contenido_paralelo(noticias, max_workers=4):
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
 
         future_to_url = {
-            executor.submit(fetch_contenido, noticia): noticia["url"]
+            executor.submit(_fetch_contenido, noticia): noticia["url"]
             for noticia in noticias
         }
 

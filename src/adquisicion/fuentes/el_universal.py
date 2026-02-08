@@ -115,7 +115,7 @@ def fetch_base():
     return noticias
 
 
-def fetch_contenido(noticia):
+def _fetch_contenido(noticia):
     try:
         response = requests.get(
             noticia["url"],
@@ -201,7 +201,7 @@ def fetch_contenido_paralelo(
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         ##Se genera un diccionario que agenda la tarea en el pool y además almacena el URL de esa tarea para saber si falla
         future_to_url = {
-            executor.submit(fetch_contenido, noticia): noticia["url"]
+            executor.submit(_fetch_contenido, noticia): noticia["url"]
             for noticia in noticias
         }
         
