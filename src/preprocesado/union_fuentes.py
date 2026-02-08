@@ -13,22 +13,12 @@ def _leer_json(path: Path) -> pd.DataFrame:
 
     return df
 
-def _normalizar_fechas(df: pd.DataFrame) -> pd.DataFrame:
-
-    df["fecha"] = pd.to_datetime(
-        df["fecha"],
-        format="%d/%m/%Y",
-        errors="coerce"
-    )
-
-    return df
-
 def unir_datasets(
     sources: Dict[str, str],
     logger
 ) -> pd.DataFrame:
 
-    log_and_print(logger, "[PREPROCESADO] Inicio unión de datasets")
+    log_and_print(logger, "\n[PREPROCESADO] Inicio unión de datasets")
 
     dataframes: List[pd.DataFrame] = []
 
@@ -45,14 +35,12 @@ def unir_datasets(
 
         df["fuente"] = fuente
 
-        df = _normalizar_fechas(df)
-
         dataframes.append(df)
 
         log_and_print(logger,f"[PREPROCESADO] Registros cargados ({fuente}): {len(df)}")
 
     df_merged = pd.concat(dataframes, ignore_index=True)
 
-    log_and_print(logger,f"[PREPROCESADO] Total registros unificados: {len(df_merged)}")
+    log_and_print(logger,f"[PREPROCESADO] Total registros unidos: {len(df_merged)}")
 
     return df_merged

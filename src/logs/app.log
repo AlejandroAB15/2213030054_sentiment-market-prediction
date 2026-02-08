@@ -1,157 +1,150 @@
-2026-02-05 13:03:46 | INFO | adquisicion.run_adquisicion | [ADQUISICIÓN] Inicio del proceso
-2026-02-05 13:03:46 | INFO | adquisicion.run_adquisicion | [ADQUISICIÓN] Fetch base de EL UNIVERSAL
+2026-02-08 02:00:38 | INFO | adquisicion.run_adquisicion | [ADQUISICIÓN] Inicio del proceso
+2026-02-08 02:00:38 | INFO | adquisicion.run_adquisicion | [ADQUISICIÓN] Fetch base de EL UNIVERSAL
 
-2026-02-05 13:03:46 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Iniciando recolección inicial
-2026-02-05 13:03:47 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 1/12 completado (25 noticias)
-2026-02-05 13:03:49 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 2/12 completado (25 noticias)
-2026-02-05 13:03:51 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 3/12 completado (25 noticias)
-2026-02-05 13:03:53 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 4/12 completado (25 noticias)
-2026-02-05 13:03:55 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 5/12 completado (25 noticias)
-2026-02-05 13:03:57 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 6/12 completado (25 noticias)
-2026-02-05 13:03:59 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 7/12 completado (25 noticias)
-2026-02-05 13:04:01 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 8/12 completado (25 noticias)
-2026-02-05 13:04:03 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 9/12 completado (25 noticias)
-2026-02-05 13:04:05 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 10/12 completado (25 noticias)
-2026-02-05 13:04:07 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 11/12 completado (25 noticias)
-2026-02-05 13:04:09 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 12/12 completado (25 noticias)
-2026-02-05 13:04:10 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Total noticias obtenidas: 300
-2026-02-05 13:04:10 | INFO | adquisicion.fuentes.el_universal | 
+2026-02-08 02:00:38 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Iniciando recolección inicial
+2026-02-08 02:00:38 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 1/12 completado (25 noticias)
+2026-02-08 02:00:40 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 2/12 completado (25 noticias)
+2026-02-08 02:00:42 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 3/12 completado (25 noticias)
+2026-02-08 02:00:44 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 4/12 completado (25 noticias)
+2026-02-08 02:00:46 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 5/12 completado (25 noticias)
+2026-02-08 02:00:48 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 6/12 completado (25 noticias)
+2026-02-08 02:00:50 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 7/12 completado (25 noticias)
+2026-02-08 02:00:52 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 8/12 completado (25 noticias)
+2026-02-08 02:00:54 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 9/12 completado (25 noticias)
+2026-02-08 02:00:56 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 10/12 completado (25 noticias)
+2026-02-08 02:00:59 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 11/12 completado (25 noticias)
+2026-02-08 02:01:01 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Batch 12/12 completado (25 noticias)
+2026-02-08 02:01:02 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Total noticias obtenidas: 300
+2026-02-08 02:01:02 | INFO | adquisicion.fuentes.el_universal | 
 [EL_UNIVERSAL] Iniciando fetch de contenido en paralelo:  (4 workers)
-2026-02-05 13:07:58 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Fetch de contenido completado: (300 noticias)
-2026-02-05 13:07:58 | INFO | adquisicion.utils.limpieza | [LIMPIEZA][EL_UNIVERSAL] Iniciando proceso (rango 2025-01-01 → 2026-01-31)
-2026-02-05 13:07:58 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias procesadas: 300
-2026-02-05 13:07:58 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias válidas: 271
-2026-02-05 13:07:58 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas sin fecha válida: 0
-2026-02-05 13:07:58 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas fuera de rango: 29
-2026-02-05 13:07:58 | INFO | adquisicion.run_adquisicion | 
+2026-02-08 02:03:45 | WARNING | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] No se encontro la sección principal: https://www.eluniversal.com.mx/mundo/juez-ordena-a-funcionarios-de-trump-no-emitir-mensajes-perjudiciales-contra-kilmar-abrego/
+2026-02-08 02:04:51 | INFO | adquisicion.fuentes.el_universal | [EL_UNIVERSAL] Fetch de contenido completado: (300 noticias)
+2026-02-08 02:04:51 | INFO | adquisicion.utils.limpieza | [LIMPIEZA][EL_UNIVERSAL] Iniciando proceso (rango 2025-01-01 → 2026-01-31)
+2026-02-08 02:04:51 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias procesadas: 300
+2026-02-08 02:04:51 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias válidas: 273
+2026-02-08 02:04:51 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas sin fecha válida: 0
+2026-02-08 02:04:51 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas fuera de rango: 27
+2026-02-08 02:04:51 | INFO | adquisicion.run_adquisicion | 
 [ADQUISICIÓN] Fetch base de EL PAÍS
-2026-02-05 13:07:58 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Iniciando recolección inicial
-2026-02-05 13:08:14 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 1/11 completado (69 artículos)
-2026-02-05 13:08:28 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 2/11 completado (34 artículos)
-2026-02-05 13:08:44 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 3/11 completado (66 artículos)
-2026-02-05 13:09:02 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 4/11 completado (76 artículos)
-2026-02-05 13:09:20 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 5/11 completado (78 artículos)
-2026-02-05 13:09:35 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 6/11 completado (44 artículos)
-2026-02-05 13:09:52 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 7/11 completado (57 artículos)
-2026-02-05 13:10:09 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 8/11 completado (52 artículos)
-2026-02-05 13:10:27 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 9/11 completado (74 artículos)
-2026-02-05 13:10:43 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 10/11 completado (55 artículos)
-2026-02-05 13:11:00 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 11/11 completado (48 artículos)
-2026-02-05 13:11:00 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Total noticias obtenidas: 653
-2026-02-05 13:11:00 | INFO | adquisicion.utils.limpieza | [LIMPIEZA][EL_PAIS] Iniciando proceso (rango 2025-01-01 → 2026-01-31)
-2026-02-05 13:11:00 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias procesadas: 653
-2026-02-05 13:11:00 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias válidas: 616
-2026-02-05 13:11:00 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas sin fecha válida: 0
-2026-02-05 13:11:00 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas fuera de rango: 37
-2026-02-05 13:11:00 | INFO | adquisicion.fuentes.el_pais | 
+2026-02-08 02:04:51 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Iniciando recolección inicial
+2026-02-08 02:05:10 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 1/11 completado (68 artículos)
+2026-02-08 02:05:26 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 2/11 completado (41 artículos)
+2026-02-08 02:05:44 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 3/11 completado (73 artículos)
+2026-02-08 02:06:02 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 4/11 completado (74 artículos)
+2026-02-08 02:06:20 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 5/11 completado (78 artículos)
+2026-02-08 02:06:36 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 6/11 completado (45 artículos)
+2026-02-08 02:06:53 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 7/11 completado (58 artículos)
+2026-02-08 02:07:10 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 8/11 completado (58 artículos)
+2026-02-08 02:07:27 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 9/11 completado (68 artículos)
+2026-02-08 02:07:46 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 10/11 completado (57 artículos)
+2026-02-08 02:08:03 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Bloque 11/11 completado (58 artículos)
+2026-02-08 02:08:03 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Total noticias obtenidas: 678
+2026-02-08 02:08:03 | INFO | adquisicion.utils.limpieza | [LIMPIEZA][EL_PAIS] Iniciando proceso (rango 2025-01-01 → 2026-01-31)
+2026-02-08 02:08:03 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias procesadas: 678
+2026-02-08 02:08:03 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias válidas: 630
+2026-02-08 02:08:03 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas sin fecha válida: 0
+2026-02-08 02:08:03 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas fuera de rango: 48
+2026-02-08 02:08:03 | INFO | adquisicion.fuentes.el_pais | 
 [EL_PAIS] Iniciando fetch de contenido en paralelo: (4 workers)
-2026-02-05 13:18:38 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Fetch de contenido completado: (616 noticias)
-2026-02-05 13:18:38 | INFO | adquisicion.run_adquisicion | 
+2026-02-08 02:15:48 | INFO | adquisicion.fuentes.el_pais | [EL_PAIS] Fetch de contenido completado: (630 noticias)
+2026-02-08 02:15:48 | INFO | adquisicion.run_adquisicion | 
 [ADQUISICIÓN] Inicia índices bursátiles
-2026-02-05 13:18:38 | INFO | adquisicion.fuentes.indices | [INDICES] Descargando índices desde 2025-01-01 hasta 2026-01-31
-2026-02-05 13:18:38 | INFO | adquisicion.fuentes.indices | [INDICES] Descargando DJI (^DJI)
-2026-02-05 13:18:39 | INFO | adquisicion.fuentes.indices | [INDICES] DJI guardado en data/raws\DJI_historico.csv
-2026-02-05 13:18:39 | INFO | adquisicion.fuentes.indices | [INDICES] Descargando NASDAQ (^IXIC)
-2026-02-05 13:18:39 | INFO | adquisicion.fuentes.indices | [INDICES] NASDAQ guardado en data/raws\NASDAQ_historico.csv
-2026-02-05 13:18:39 | INFO | adquisicion.fuentes.indices | [INDICES] Descargando SP500 (^GSPC)
-2026-02-05 13:18:39 | INFO | adquisicion.fuentes.indices | [INDICES] SP500 guardado en data/raws\SP500_historico.csv
-2026-02-05 13:18:39 | INFO | adquisicion.fuentes.indices | [INDICES] Descarga completada (3 índices)
-2026-02-05 13:18:39 | INFO | adquisicion.run_adquisicion | 
+2026-02-08 02:15:48 | INFO | adquisicion.fuentes.indices | [INDICES] Descargando índices desde 2025-01-01 hasta 2026-01-31
+2026-02-08 02:15:48 | INFO | adquisicion.fuentes.indices | [INDICES] Descargando DJI (^DJI)
+2026-02-08 02:15:50 | INFO | adquisicion.fuentes.indices | [INDICES] DJI guardado en data/raws\DJI_historico.csv
+2026-02-08 02:15:50 | INFO | adquisicion.fuentes.indices | [INDICES] Descargando NASDAQ (^IXIC)
+2026-02-08 02:15:50 | INFO | adquisicion.fuentes.indices | [INDICES] NASDAQ guardado en data/raws\NASDAQ_historico.csv
+2026-02-08 02:15:50 | INFO | adquisicion.fuentes.indices | [INDICES] Descargando SP500 (^GSPC)
+2026-02-08 02:15:50 | INFO | adquisicion.fuentes.indices | [INDICES] SP500 guardado en data/raws\SP500_historico.csv
+2026-02-08 02:15:50 | INFO | adquisicion.fuentes.indices | [INDICES] Descarga completada (3 índices)
+2026-02-08 02:15:50 | INFO | adquisicion.run_adquisicion | 
 [ADQUISICIÓN][ÍNDICES] DJI: 270 registros almacenados
-2026-02-05 13:18:39 | INFO | adquisicion.run_adquisicion | 
+2026-02-08 02:15:50 | INFO | adquisicion.run_adquisicion | 
 [ADQUISICIÓN][ÍNDICES] NASDAQ: 270 registros almacenados
-2026-02-05 13:18:39 | INFO | adquisicion.run_adquisicion | 
+2026-02-08 02:15:50 | INFO | adquisicion.run_adquisicion | 
 [ADQUISICIÓN][ÍNDICES] SP500: 270 registros almacenados
-2026-02-05 13:18:39 | INFO | adquisicion.run_adquisicion | 
-[ADQUISICIÓN] Proceso finalizado correctamente
-2026-02-06 16:10:21 | INFO | adquisicion.run_adquisicion | [ADQUISICIÓN] Inicio del proceso
-2026-02-06 16:10:21 | INFO | adquisicion.run_adquisicion | 
+2026-02-08 02:15:50 | INFO | adquisicion.run_adquisicion | 
 [ADQUISICIÓN] Fetch base de INFOBAE
-2026-02-06 16:10:21 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Iniciando recolección inicial
-2026-02-06 16:10:21 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 1/12 completado (25 noticias)
-2026-02-06 16:10:23 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 2/12 completado (25 noticias)
-2026-02-06 16:10:25 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 3/12 completado (25 noticias)
-2026-02-06 16:10:27 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 4/12 completado (25 noticias)
-2026-02-06 16:10:29 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 5/12 completado (25 noticias)
-2026-02-06 16:10:31 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 6/12 completado (25 noticias)
-2026-02-06 16:10:33 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 7/12 completado (25 noticias)
-2026-02-06 16:10:35 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 8/12 completado (25 noticias)
-2026-02-06 16:10:37 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 9/12 completado (25 noticias)
-2026-02-06 16:10:39 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 10/12 completado (25 noticias)
-2026-02-06 16:10:41 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 11/12 completado (25 noticias)
-2026-02-06 16:10:43 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 12/12 completado (25 noticias)
-2026-02-06 16:10:45 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Total noticias obtenidas: 300
-2026-02-06 16:10:45 | INFO | adquisicion.utils.limpieza | [LIMPIEZA][INFOBAE] Iniciando proceso (rango 2025-01-01 → 2026-01-31)
-2026-02-06 16:10:45 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias procesadas: 300
-2026-02-06 16:10:45 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias válidas: 247
-2026-02-06 16:10:45 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas sin fecha válida: 0
-2026-02-06 16:10:45 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas fuera de rango: 53
-2026-02-06 16:10:45 | INFO | adquisicion.fuentes.infobae | 
+2026-02-08 02:15:50 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Iniciando recolección inicial
+2026-02-08 02:15:50 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 1/12 completado (25 noticias)
+2026-02-08 02:15:53 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 2/12 completado (25 noticias)
+2026-02-08 02:15:55 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 3/12 completado (25 noticias)
+2026-02-08 02:15:57 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 4/12 completado (25 noticias)
+2026-02-08 02:15:59 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 5/12 completado (25 noticias)
+2026-02-08 02:16:01 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 6/12 completado (25 noticias)
+2026-02-08 02:16:03 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 7/12 completado (25 noticias)
+2026-02-08 02:16:05 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 8/12 completado (25 noticias)
+2026-02-08 02:16:07 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 9/12 completado (25 noticias)
+2026-02-08 02:16:09 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 10/12 completado (25 noticias)
+2026-02-08 02:16:11 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 11/12 completado (25 noticias)
+2026-02-08 02:16:13 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 12/12 completado (25 noticias)
+2026-02-08 02:16:14 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Total noticias obtenidas: 300
+2026-02-08 02:16:14 | INFO | adquisicion.utils.limpieza | [LIMPIEZA][INFOBAE] Iniciando proceso (rango 2025-01-01 → 2026-01-31)
+2026-02-08 02:16:14 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias procesadas: 300
+2026-02-08 02:16:14 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias válidas: 273
+2026-02-08 02:16:14 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas sin fecha válida: 0
+2026-02-08 02:16:14 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas fuera de rango: 27
+2026-02-08 02:16:14 | INFO | adquisicion.fuentes.infobae | 
 [INFOBAE] Iniciando fetch de contenido en paralelo (4 workers)
-2026-02-06 16:10:45 | WARNING | adquisicion.fuentes.infobae | [INFOBAE] No se encontró el body: https://www.infobae.com/mexico/2026/01/29/la-mananera-de-hoy-jueves-29-de-enero-en-vivo/
-2026-02-06 16:12:46 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Fetch de contenido completado (247 noticias)
-2026-02-06 16:12:46 | INFO | adquisicion.run_adquisicion | 
-[ADQUISICIÓN] Proceso finalizado correctamente
-2026-02-06 16:28:12 | INFO | adquisicion.run_adquisicion | [ADQUISICIÓN] Inicio del proceso
-2026-02-06 16:28:12 | INFO | adquisicion.run_adquisicion | 
-[ADQUISICIÓN] Fetch base de INFOBAE
-2026-02-06 16:28:12 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Iniciando recolección inicial
-2026-02-06 16:28:12 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 1/12 completado (25 noticias)
-2026-02-06 16:28:14 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 2/12 completado (25 noticias)
-2026-02-06 16:28:16 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 3/12 completado (25 noticias)
-2026-02-06 16:28:18 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 4/12 completado (25 noticias)
-2026-02-06 16:28:20 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 5/12 completado (25 noticias)
-2026-02-06 16:28:22 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 6/12 completado (25 noticias)
-2026-02-06 16:28:24 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 7/12 completado (25 noticias)
-2026-02-06 16:28:26 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 8/12 completado (25 noticias)
-2026-02-06 16:28:28 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 9/12 completado (25 noticias)
-2026-02-06 16:28:30 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 10/12 completado (25 noticias)
-2026-02-06 16:28:32 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 11/12 completado (25 noticias)
-2026-02-06 16:28:34 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Batch 12/12 completado (25 noticias)
-2026-02-06 16:28:36 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Total noticias obtenidas: 300
-2026-02-06 16:28:36 | INFO | adquisicion.utils.limpieza | [LIMPIEZA][INFOBAE] Iniciando proceso (rango 2025-01-01 → 2026-01-31)
-2026-02-06 16:28:36 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias procesadas: 300
-2026-02-06 16:28:36 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias válidas: 274
-2026-02-06 16:28:36 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas sin fecha válida: 0
-2026-02-06 16:28:36 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas fuera de rango: 26
-2026-02-06 16:28:36 | INFO | adquisicion.fuentes.infobae | 
-[INFOBAE] Iniciando fetch de contenido en paralelo (4 workers)
-2026-02-06 16:31:11 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Fetch de contenido completado (274 noticias)
-2026-02-06 16:31:11 | INFO | adquisicion.run_adquisicion | 
-[ADQUISICIÓN] Proceso finalizado correctamente
-2026-02-07 16:16:56 | INFO | adquisicion.run_adquisicion | [ADQUISICIÓN] Inicio del proceso
-2026-02-07 16:16:56 | INFO | adquisicion.run_adquisicion | 
+2026-02-08 02:18:28 | WARNING | adquisicion.fuentes.infobae | [INFOBAE] No se encontró el body: https://www.infobae.com/venezuela/2025/10/10/en-vivo-maria-corina-machado-gano-el-premio-nobel-de-la-paz-2025/
+2026-02-08 02:18:49 | INFO | adquisicion.fuentes.infobae | [INFOBAE] Fetch de contenido completado (273 noticias)
+2026-02-08 02:18:49 | INFO | adquisicion.run_adquisicion | 
 [ADQUISICIÓN] Fetch base de EL_FINANCIERO
-2026-02-07 16:16:56 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Iniciando recolección inicial
-2026-02-07 16:16:57 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 1/20 completado(30 noticias)
-2026-02-07 16:16:59 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 2/20 completado(30 noticias)
-2026-02-07 16:17:00 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 3/20 completado(30 noticias)
-2026-02-07 16:17:02 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 4/20 completado(30 noticias)
-2026-02-07 16:17:04 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 5/20 completado(30 noticias)
-2026-02-07 16:17:06 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 6/20 completado(30 noticias)
-2026-02-07 16:17:08 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 7/20 completado(30 noticias)
-2026-02-07 16:17:10 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 8/20 completado(30 noticias)
-2026-02-07 16:17:12 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 9/20 completado(30 noticias)
-2026-02-07 16:17:14 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 10/20 completado(30 noticias)
-2026-02-07 16:17:16 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 11/20 completado(30 noticias)
-2026-02-07 16:17:18 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 12/20 completado(30 noticias)
-2026-02-07 16:17:20 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 13/20 completado(30 noticias)
-2026-02-07 16:17:22 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 14/20 completado(30 noticias)
-2026-02-07 16:17:24 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 15/20 completado(30 noticias)
-2026-02-07 16:17:26 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 16/20 completado(30 noticias)
-2026-02-07 16:17:28 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 17/20 completado(30 noticias)
-2026-02-07 16:17:30 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 18/20 completado(30 noticias)
-2026-02-07 16:17:32 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 19/20 completado(30 noticias)
-2026-02-07 16:17:34 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 20/20 completado(30 noticias)
-2026-02-07 16:17:36 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Total noticias obtenidas: 553
-2026-02-07 16:17:36 | INFO | adquisicion.utils.limpieza | [LIMPIEZA][EL_FINANCIERO] Iniciando proceso (rango 2025-01-01 → 2026-01-31)
-2026-02-07 16:17:36 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias procesadas: 553
-2026-02-07 16:17:36 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias válidas: 519
-2026-02-07 16:17:36 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas sin fecha válida: 0
-2026-02-07 16:17:36 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas fuera de rango: 34
-2026-02-07 16:17:36 | INFO | adquisicion.fuentes.el_financiero | 
+2026-02-08 02:18:49 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Iniciando recolección inicial
+2026-02-08 02:18:49 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 1/20 completado(30 noticias)
+2026-02-08 02:18:51 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 2/20 completado(30 noticias)
+2026-02-08 02:18:53 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 3/20 completado(30 noticias)
+2026-02-08 02:18:55 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 4/20 completado(30 noticias)
+2026-02-08 02:18:57 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 5/20 completado(30 noticias)
+2026-02-08 02:18:59 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 6/20 completado(30 noticias)
+2026-02-08 02:19:01 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 7/20 completado(30 noticias)
+2026-02-08 02:19:03 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 8/20 completado(30 noticias)
+2026-02-08 02:19:05 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 9/20 completado(30 noticias)
+2026-02-08 02:19:07 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 10/20 completado(30 noticias)
+2026-02-08 02:19:09 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 11/20 completado(30 noticias)
+2026-02-08 02:19:11 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 12/20 completado(30 noticias)
+2026-02-08 02:19:13 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 13/20 completado(30 noticias)
+2026-02-08 02:19:16 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 14/20 completado(30 noticias)
+2026-02-08 02:19:18 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 15/20 completado(30 noticias)
+2026-02-08 02:19:20 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 16/20 completado(30 noticias)
+2026-02-08 02:19:22 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 17/20 completado(30 noticias)
+2026-02-08 02:19:24 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 18/20 completado(30 noticias)
+2026-02-08 02:19:26 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 19/20 completado(30 noticias)
+2026-02-08 02:19:28 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Batch 20/20 completado(30 noticias)
+2026-02-08 02:19:29 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Total noticias obtenidas: 553
+2026-02-08 02:19:29 | INFO | adquisicion.utils.limpieza | [LIMPIEZA][EL_FINANCIERO] Iniciando proceso (rango 2025-01-01 → 2026-01-31)
+2026-02-08 02:19:29 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias procesadas: 553
+2026-02-08 02:19:29 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Noticias válidas: 522
+2026-02-08 02:19:29 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas sin fecha válida: 0
+2026-02-08 02:19:29 | INFO | adquisicion.utils.limpieza | [LIMPIEZA] Descartadas fuera de rango: 31
+2026-02-08 02:19:29 | INFO | adquisicion.fuentes.el_financiero | 
 [EL_FINANCIERO] Fetch contenido paralelo (4 workers)
-2026-02-07 16:23:13 | ERROR | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Error contenido: https://www.elfinanciero.com.mx/monterrey/2025/01/10/araceli-gonzalez-la-llegada-de-trump-y-los-retos-para-mexico/ -> list index out of range
-2026-02-07 16:23:13 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Contenido completado (519)
-2026-02-07 16:23:13 | INFO | adquisicion.run_adquisicion | 
+2026-02-08 02:25:03 | ERROR | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Error contenido: https://www.elfinanciero.com.mx/monterrey/2025/01/10/araceli-gonzalez-la-llegada-de-trump-y-los-retos-para-mexico/ -> list index out of range
+2026-02-08 02:25:09 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Contenido completado (522)
+2026-02-08 02:25:09 | INFO | adquisicion.run_adquisicion | 
 [ADQUISICIÓN] Proceso finalizado correctamente
+2026-02-08 02:25:09 | INFO | preprocesado.run_preprocesado | 
+[PREPROCESADO] Inicio del pipeline de preprocesamiento
+2026-02-08 02:25:09 | INFO | preprocesado.run_preprocesado | 
+[PREPROCESADO] Inicio unión de datasets
+2026-02-08 02:25:09 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cargando fuente: infobae
+2026-02-08 02:25:09 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Registros cargados (infobae): 273
+2026-02-08 02:25:09 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cargando fuente: el_financiero
+2026-02-08 02:25:09 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Registros cargados (el_financiero): 522
+2026-02-08 02:25:09 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cargando fuente: el_pais
+2026-02-08 02:25:09 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Registros cargados (el_pais): 630
+2026-02-08 02:25:09 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cargando fuente: el_universal
+2026-02-08 02:25:09 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Registros cargados (el_universal): 273
+2026-02-08 02:25:09 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Total registros unidos: 1698
+2026-02-08 02:25:09 | INFO | preprocesado.run_preprocesado | 
+[PREPROCESADO] Inicio de saneamiento base del dataframe
+2026-02-08 02:25:09 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Registros tras eliminar contenidos nulos: 1695
+2026-02-08 02:25:09 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Contenido truncado a máximo de 2000 caracteres
+2026-02-08 02:25:09 | INFO | preprocesado.run_preprocesado | 
+[PREPROCESADO] Inicio de filtro de relevancia temática
+2026-02-08 02:25:09 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Relevantes: 1323 | A revisar: 372
+2026-02-08 02:25:09 | INFO | preprocesado.run_preprocesado | 
+[PREPROCESADO] Inicio de deduplicación de datasets
+2026-02-08 02:25:09 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cantidad de duplicados relevantes eliminados: 17
+2026-02-08 02:25:09 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cantidad de duplicados no relevantes eliminados: 46
+2026-02-08 02:25:09 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Datasets exportados ruta final

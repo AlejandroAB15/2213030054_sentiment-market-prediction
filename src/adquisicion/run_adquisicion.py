@@ -126,7 +126,6 @@ def _run_indices(logger):
         )
 
 def run_adquisicion():
-    setup_logger()
     logger = get_logger(__name__)
 
     log_and_print(logger, "[ADQUISICIÓN] Inicio del proceso")
@@ -137,7 +136,4 @@ def run_adquisicion():
     _run_infobae(logger)
     _run_el_financiero(logger)
 
-    log_and_print(
-        logger,
-        "\n[ADQUISICIÓN] Proceso finalizado correctamente"
-    )
+    log_and_print(logger,"\n[ADQUISICIÓN] Proceso finalizado correctamente")
