@@ -1,46 +1,47 @@
 import re
 import pandas as pd
 from utils.logging_utils import log_and_print
-from clasificacion.utils.token_truncation import BetoTokenTruncator
 
 def aplicar_saneamiento_base(
     df: pd.DataFrame,
-    logger
+    logger,
+    max_chars: int = 2000
 ) -> pd.DataFrame:
 
     log_and_print(logger, "\n[PREPROCESADO] Inicio de saneamiento base del dataframe")
 
     df = df.copy()
 
-    df["contenido"] = df["contenido"].astype(str).str.strip()
+    df["contenido"] = df["contenido"].astype(str)
 
-    # Se eliminan registros sin contenido
+    df["contenido"] = df["contenido"].str.strip()
+
     df = df[
         (df["contenido"].notna()) &
         (df["contenido"] != "") &
         (df["contenido"].str.lower() != "nan")
     ]
 
-    log_and_print(
-        logger,
-        f"[PREPROCESADO] Registros tras eliminar contenidos nulos: {len(df)}"
-    )
+    log_and_print(logger,f"[PREPROCESADO] Registros tras eliminar contenidos nulos: {len(df)}")
 
-    # Flag para checar si el título menciona a Trump
-    patron_trump = re.compile(r"\btrump\b", flags=re.IGNORECASE)
+    ## Flags para verificar si el titulo menciona a trump
+    ## Para tener en cuenta que registros verificar en el siguiente paso
+    patron_trump = re.compile(
+        r"\btrump\b",
+        flags=re.IGNORECASE
+    )
 
     df["menciona_trump_titulo"] = df["titulo"].apply(
-        lambda x: bool(patron_trump.search(str(x)))
+        lambda x: bool(
+            patron_trump.search(str(x))
+        )
     )
 
-    # Truncamiento alineado con BETO
-    log_and_print(
-        logger,
-        "[PREPROCESADO] Aplicando truncamiento basado en tokenizer BETO (512 tokens)"
+    df["contenido"] = df["contenido"].str.slice(
+        0,
+        max_chars
     )
 
-    truncator = BetoTokenTruncator()
-
-    df["contenido"] = df["contenido"].apply(truncator.truncate_to_model_limit)
+    log_and_print(logger,f"[PREPROCESADO] Contenido truncado a máximo de {max_chars} caracteres")
 
     return df
