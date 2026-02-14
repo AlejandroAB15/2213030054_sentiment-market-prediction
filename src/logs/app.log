@@ -123,35 +123,45 @@
 2026-02-08 02:25:09 | INFO | adquisicion.fuentes.el_financiero | [EL_FINANCIERO] Contenido completado (522)
 2026-02-08 02:25:09 | INFO | adquisicion.run_adquisicion | 
 [ADQUISICIÓN] Proceso finalizado correctamente
-2026-02-14 00:23:56 | INFO | preprocesado.run_preprocesado | 
+2026-02-14 01:49:47 | INFO | preprocesado.run_preprocesado | 
 [PREPROCESADO] Inicio del pipeline de preprocesamiento
-2026-02-14 00:23:56 | INFO | preprocesado.run_preprocesado | 
+2026-02-14 01:49:47 | INFO | preprocesado.run_preprocesado | 
 [PREPROCESADO] Inicio unión de datasets
-2026-02-14 00:23:56 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cargando fuente: infobae
-2026-02-14 00:23:56 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Registros cargados (infobae): 273
-2026-02-14 00:23:56 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cargando fuente: el_financiero
-2026-02-14 00:23:56 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Registros cargados (el_financiero): 522
-2026-02-14 00:23:56 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cargando fuente: el_pais
-2026-02-14 00:23:56 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Registros cargados (el_pais): 630
-2026-02-14 00:23:56 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cargando fuente: el_universal
-2026-02-14 00:23:56 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Registros cargados (el_universal): 273
-2026-02-14 00:23:56 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Total registros unidos: 1698
-2026-02-14 00:23:56 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Dataset ordenado cronológicamente (ascendente)
-2026-02-14 00:23:56 | INFO | preprocesado.run_preprocesado | 
+2026-02-14 01:49:47 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cargando fuente: infobae
+2026-02-14 01:49:47 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Registros cargados (infobae): 273
+2026-02-14 01:49:47 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cargando fuente: el_financiero
+2026-02-14 01:49:47 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Registros cargados (el_financiero): 522
+2026-02-14 01:49:47 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cargando fuente: el_pais
+2026-02-14 01:49:47 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Registros cargados (el_pais): 630
+2026-02-14 01:49:47 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cargando fuente: el_universal
+2026-02-14 01:49:47 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Registros cargados (el_universal): 273
+2026-02-14 01:49:47 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Total registros unidos: 1698
+2026-02-14 01:49:47 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Dataset ordenado cronológicamente (ascendente)
+2026-02-14 01:49:47 | INFO | preprocesado.run_preprocesado | 
 [PREPROCESADO] Inicio de saneamiento base del dataframe
-2026-02-14 00:23:56 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Registros tras eliminar contenidos nulos: 1695
-2026-02-14 00:23:56 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Aplicando truncamiento basado en tokenizer BETO (512 tokens)
-2026-02-14 00:23:57 | INFO | httpx | HTTP Request: HEAD https://huggingface.co/finiteautomata/beto-sentiment-analysis/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
-2026-02-14 00:23:57 | INFO | httpx | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/finiteautomata/beto-sentiment-analysis/9384c7f339a6d62c9e2e1d686f225f92e3a3353b/config.json "HTTP/1.1 200 OK"
-2026-02-14 00:23:57 | INFO | httpx | HTTP Request: HEAD https://huggingface.co/finiteautomata/beto-sentiment-analysis/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
-2026-02-14 00:23:57 | INFO | httpx | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/finiteautomata/beto-sentiment-analysis/9384c7f339a6d62c9e2e1d686f225f92e3a3353b/tokenizer_config.json "HTTP/1.1 200 OK"
-2026-02-14 00:23:57 | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/finiteautomata/beto-sentiment-analysis/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
-2026-02-14 00:23:57 | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/finiteautomata/beto-sentiment-analysis/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
-2026-02-14 00:23:59 | INFO | preprocesado.run_preprocesado | 
+2026-02-14 01:49:47 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Registros tras eliminar contenidos nulos: 1695
+2026-02-14 01:49:47 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Contenido truncado a máximo de 2000 caracteres
+2026-02-14 01:49:47 | INFO | preprocesado.run_preprocesado | 
 [PREPROCESADO] Inicio de filtro de relevancia temática
-2026-02-14 00:23:59 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Relevantes: 1346 | A revisar: 349
-2026-02-14 00:23:59 | INFO | preprocesado.run_preprocesado | 
+2026-02-14 01:49:47 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Relevantes: 1323 | A revisar: 372
+2026-02-14 01:49:47 | INFO | preprocesado.run_preprocesado | 
 [PREPROCESADO] Inicio de deduplicación de datasets
-2026-02-14 00:23:59 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cantidad de duplicados relevantes eliminados: 19
-2026-02-14 00:23:59 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cantidad de duplicados no relevantes eliminados: 44
-2026-02-14 00:24:00 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Datasets exportados correctamente
+2026-02-14 01:49:47 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cantidad de duplicados relevantes eliminados: 17
+2026-02-14 01:49:47 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cantidad de duplicados no relevantes eliminados: 46
+2026-02-14 01:49:47 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Datasets exportados correctamente
+2026-02-14 01:49:47 | INFO | clasificacion.run_clasificacion | 
+[CLASIFICACION] Inicio de clasificación
+2026-02-14 01:49:47 | INFO | clasificacion.run_clasificacion | [CLASIFICACION] Registros a clasificar: 1306
+2026-02-14 01:49:47 | INFO | httpx | HTTP Request: HEAD https://huggingface.co/finiteautomata/beto-sentiment-analysis/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-14 01:49:47 | INFO | httpx | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/finiteautomata/beto-sentiment-analysis/9384c7f339a6d62c9e2e1d686f225f92e3a3353b/config.json "HTTP/1.1 200 OK"
+2026-02-14 01:49:48 | INFO | httpx | HTTP Request: HEAD https://huggingface.co/finiteautomata/beto-sentiment-analysis/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-02-14 01:49:48 | WARNING | huggingface_hub.utils._http | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-02-14 01:49:48 | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/finiteautomata/beto-sentiment-analysis "HTTP/1.1 200 OK"
+2026-02-14 01:49:48 | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/finiteautomata/beto-sentiment-analysis/commits/main "HTTP/1.1 200 OK"
+2026-02-14 01:49:48 | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/finiteautomata/beto-sentiment-analysis/discussions?p=0 "HTTP/1.1 200 OK"
+2026-02-14 01:49:48 | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/finiteautomata/beto-sentiment-analysis/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-02-14 01:49:48 | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/finiteautomata/beto-sentiment-analysis/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-02-14 01:49:48 | INFO | httpx | HTTP Request: GET https://huggingface.co/api/models/finiteautomata/beto-sentiment-analysis/commits/refs%2Fpr%2F1 "HTTP/1.1 200 OK"
+2026-02-14 01:49:48 | INFO | httpx | HTTP Request: HEAD https://huggingface.co/finiteautomata/beto-sentiment-analysis/resolve/refs%2Fpr%2F1/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-02-14 01:49:48 | INFO | httpx | HTTP Request: HEAD https://huggingface.co/finiteautomata/beto-sentiment-analysis/resolve/refs%2Fpr%2F1/model.safetensors "HTTP/1.1 302 Found"
+2026-02-14 01:49:56 | INFO | clasificacion.run_clasificacion | [CLASIFICACION] Clasificación completada y exportada
