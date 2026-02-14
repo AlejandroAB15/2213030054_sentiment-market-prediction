@@ -5,13 +5,10 @@ import pandas as pd
 from utils.logging_utils import log_and_print
 
 def _leer_json(path: Path) -> pd.DataFrame:
-
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    df = pd.DataFrame(data)
-
-    return df
+    return pd.DataFrame(data)
 
 def unir_datasets(
     sources: Dict[str, str],
@@ -37,10 +34,31 @@ def unir_datasets(
 
         dataframes.append(df)
 
-        log_and_print(logger,f"[PREPROCESADO] Registros cargados ({fuente}): {len(df)}")
+        log_and_print(
+            logger,
+            f"[PREPROCESADO] Registros cargados ({fuente}): {len(df)}"
+        )
 
     df_merged = pd.concat(dataframes, ignore_index=True)
 
-    log_and_print(logger,f"[PREPROCESADO] Total registros unidos: {len(df_merged)}")
+    log_and_print(
+        logger,
+        f"[PREPROCESADO] Total registros unidos: {len(df_merged)}"
+    )
+
+    # Conversión a datetime para control interno
+    df_merged["fecha"] = pd.to_datetime(df_merged["fecha"], dayfirst=True)
+
+    # Orden cronológico de la más antigua a la más reciente
+    df_merged = (
+        df_merged
+        .sort_values("fecha", ascending=True)
+        .reset_index(drop=True)
+    )
+
+    log_and_print(
+        logger,
+        "[PREPROCESADO] Dataset ordenado cronológicamente (ascendente)"
+    )
 
     return df_merged
