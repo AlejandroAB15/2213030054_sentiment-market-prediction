@@ -8,6 +8,7 @@ from adquisicion.fuentes.infobae import ( fetch_base as fetch_infobae, fetch_con
 from adquisicion.fuentes.el_financiero import ( fetch_base as fetch_financiero, fetch_contenido_paralelo as contenido_financiero)
 from adquisicion.fuentes import indices
 from adquisicion.utils.limpieza import limpiar_noticias_por_fecha
+from datetime import datetime, timedelta
 
 RAW_DIR = Path("data/raws")
 RAW_DIR.mkdir(parents=True, exist_ok=True)
@@ -112,9 +113,15 @@ def _run_indices(logger):
         "\n[ADQUISICIÓN] Inicia índices bursátiles"
     )
 
+    # Extender 7 días para poder poblar dataset final al completo
+    fecha_fin_extendida = (
+        datetime.strptime(FECHA_FIN, "%Y-%m-%d") 
+        + timedelta(days=7)
+        ).strftime("%Y-%m-%d")
+
     datos_indices = indices.descargar_indices(
         FECHA_INICIO,
-        FECHA_FIN,
+        fecha_fin_extendida,
         guardar_csv=True
     )
 

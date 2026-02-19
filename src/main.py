@@ -7,7 +7,7 @@ from clasificacion.run_clasificacion import run_clasificacion
 def main():
     setup_logger()
 
-    #run_adquisicion()
+    run_adquisicion()
     run_preprocesado()
     run_clasificacion()
 

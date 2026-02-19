@@ -165,3 +165,22 @@
 2026-02-14 01:49:48 | INFO | httpx | HTTP Request: HEAD https://huggingface.co/finiteautomata/beto-sentiment-analysis/resolve/refs%2Fpr%2F1/model.safetensors.index.json "HTTP/1.1 404 Not Found"
 2026-02-14 01:49:48 | INFO | httpx | HTTP Request: HEAD https://huggingface.co/finiteautomata/beto-sentiment-analysis/resolve/refs%2Fpr%2F1/model.safetensors "HTTP/1.1 302 Found"
 2026-02-14 01:49:56 | INFO | clasificacion.run_clasificacion | [CLASIFICACION] Clasificación completada y exportada
+2026-02-18 22:55:21 | INFO | adquisicion.run_adquisicion | [ADQUISICIÓN] Inicio del proceso
+2026-02-18 22:55:21 | INFO | adquisicion.run_adquisicion | 
+[ADQUISICIÓN] Inicia índices bursátiles
+2026-02-18 22:55:21 | INFO | adquisicion.fuentes.indices | [INDICES] Descargando índices desde 2025-01-01 hasta 2026-02-07
+2026-02-18 22:55:21 | INFO | adquisicion.fuentes.indices | [INDICES] Descargando DJI (^DJI)
+2026-02-18 22:55:23 | INFO | adquisicion.fuentes.indices | [INDICES] DJI guardado en data/raws\DJI_historico.csv
+2026-02-18 22:55:23 | INFO | adquisicion.fuentes.indices | [INDICES] Descargando NASDAQ (^IXIC)
+2026-02-18 22:55:23 | INFO | adquisicion.fuentes.indices | [INDICES] NASDAQ guardado en data/raws\NASDAQ_historico.csv
+2026-02-18 22:55:23 | INFO | adquisicion.fuentes.indices | [INDICES] Descargando SP500 (^GSPC)
+2026-02-18 22:55:24 | INFO | adquisicion.fuentes.indices | [INDICES] SP500 guardado en data/raws\SP500_historico.csv
+2026-02-18 22:55:24 | INFO | adquisicion.fuentes.indices | [INDICES] Descarga completada (3 índices)
+2026-02-18 22:55:24 | INFO | adquisicion.run_adquisicion | 
+[ADQUISICIÓN][ÍNDICES] DJI: 275 registros almacenados
+2026-02-18 22:55:24 | INFO | adquisicion.run_adquisicion | 
+[ADQUISICIÓN][ÍNDICES] NASDAQ: 275 registros almacenados
+2026-02-18 22:55:24 | INFO | adquisicion.run_adquisicion | 
+[ADQUISICIÓN][ÍNDICES] SP500: 275 registros almacenados
+2026-02-18 22:55:24 | INFO | adquisicion.run_adquisicion | 
+[ADQUISICIÓN] Proceso finalizado correctamente
