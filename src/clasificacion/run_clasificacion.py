@@ -2,11 +2,10 @@ import json
 import torch
 import pandas as pd
 from pathlib import Path
-from transformers import pipeline
+from pysentimiento import create_analyzer
 from utils.logger import get_logger
 from utils.logging_utils import log_and_print
 
-MODELO_SENTIMIENTO = "finiteautomata/beto-sentiment-analysis"
 
 def run_clasificacion():
 
@@ -14,11 +13,6 @@ def run_clasificacion():
     log_and_print(logger, "\n[CLASIFICACION] Inicio de clasificación")
 
     datos_iniciales = Path("data/procesados/dataset_relevante.json")
-
-    if not datos_iniciales.exists():
-        raise FileNotFoundError(
-            "[CLASIFICACION] No se encontró dataset_relevante.json"
-        )
 
     with open(datos_iniciales, "r", encoding="utf-8") as f:
         data = json.load(f)
@@ -30,24 +24,24 @@ def run_clasificacion():
         f"[CLASIFICACION] Registros a clasificar: {len(df)}"
     )
 
-    device = 0 if torch.cuda.is_available() else -1
+    device = "cuda" if torch.cuda.is_available() else "cpu"
 
-    clasificador = pipeline(
-        "sentiment-analysis",
-        model=MODELO_SENTIMIENTO,
-        tokenizer=MODELO_SENTIMIENTO,
+    analyzer = create_analyzer(
+        task="sentiment",
+        lang="es",
         device=device
     )
 
-    resultados = clasificador(
-        df["contenido"].tolist(),
-        batch_size=32,
-        truncation=True,
-        max_length=512
-    )
+    labels = []
+    scores = []
 
-    df["sentimiento_label"] = [r["label"] for r in resultados]
-    df["sentimiento_score"] = [r["score"] for r in resultados]
+    for texto in df["contenido"]:
+        result = analyzer.predict(texto)
+        labels.append(result.output)
+        scores.append(float(result.probas[result.output]))
+
+    df["sentimiento_label"] = labels
+    df["sentimiento_score"] = scores
 
     columnas_finales = [
         "titulo",
