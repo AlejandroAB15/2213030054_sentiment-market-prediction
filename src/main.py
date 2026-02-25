@@ -10,8 +10,8 @@ def main():
 
     #run_adquisicion()
     #run_preprocesado()
-    run_clasificacion()
-    #run_prediccion()
+    #run_clasificacion()
+    run_prediccion()
 
 
 if __name__ == "__main__":

@@ -184,11 +184,6 @@
 [ADQUISICIÓN][ÍNDICES] SP500: 275 registros almacenados
 2026-02-18 22:55:24 | INFO | adquisicion.run_adquisicion | 
 [ADQUISICIÓN] Proceso finalizado correctamente
-2026-02-18 23:56:43 | INFO | prediccion.run_prediccion | [PREDICCION] Iniciando construcción de dataframe con datos bursátiles
-
-2026-02-19 00:02:15 | INFO | prediccion.run_prediccion | [PREDICCION] Iniciando construcción de dataframe con datos bursátiles
-
-2026-02-19 00:02:16 | INFO | prediccion.run_prediccion | [PREDICCION] Dataset construido. Shape: (1306, 12)
 2026-02-20 17:19:12 | INFO | clasificacion.run_clasificacion | 
 [CLASIFICACION] Inicio de clasificación
 2026-02-20 17:19:12 | INFO | clasificacion.run_clasificacion | [CLASIFICACION] Registros a clasificar: 1306
@@ -217,3 +212,4 @@
 2026-02-20 17:19:23 | INFO | httpx | HTTP Request: GET https://huggingface.co/api/resolve-cache/models/pysentimiento/robertuito-sentiment-analysis/a2cc0f67ebd705c55191e25a05ba23d885fcc09b/special_tokens_map.json "HTTP/1.1 200 OK"
 2026-02-20 17:19:23 | INFO | httpx | HTTP Request: HEAD https://huggingface.co/pysentimiento/robertuito-sentiment-analysis/resolve/main/chat_template.jinja "HTTP/1.1 404 Not Found"
 2026-02-20 17:19:36 | INFO | clasificacion.run_clasificacion | [CLASIFICACION] Clasificación completada y exportada
+
