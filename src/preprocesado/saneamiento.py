@@ -37,11 +37,4 @@ def aplicar_saneamiento_base(
         )
     )
 
-    df["contenido"] = df["contenido"].str.slice(
-        0,
-        max_chars
-    )
-
-    log_and_print(logger,f"[PREPROCESADO] Contenido truncado a máximo de {max_chars} caracteres")
-
     return df
