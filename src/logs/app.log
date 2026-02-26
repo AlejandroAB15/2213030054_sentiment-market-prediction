@@ -213,3 +213,28 @@
 2026-02-20 17:19:23 | INFO | httpx | HTTP Request: HEAD https://huggingface.co/pysentimiento/robertuito-sentiment-analysis/resolve/main/chat_template.jinja "HTTP/1.1 404 Not Found"
 2026-02-20 17:19:36 | INFO | clasificacion.run_clasificacion | [CLASIFICACION] Clasificación completada y exportada
 
+2026-02-25 17:58:37 | INFO | preprocesado.run_preprocesado | 
+[PREPROCESADO] Inicio del pipeline de preprocesamiento
+2026-02-25 17:58:37 | INFO | preprocesado.run_preprocesado | 
+[PREPROCESADO] Inicio unión de datasets
+2026-02-25 17:58:37 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cargando fuente: infobae
+2026-02-25 17:58:37 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Registros cargados (infobae): 273
+2026-02-25 17:58:37 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cargando fuente: el_financiero
+2026-02-25 17:58:37 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Registros cargados (el_financiero): 522
+2026-02-25 17:58:37 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cargando fuente: el_pais
+2026-02-25 17:58:37 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Registros cargados (el_pais): 630
+2026-02-25 17:58:37 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cargando fuente: el_universal
+2026-02-25 17:58:37 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Registros cargados (el_universal): 273
+2026-02-25 17:58:37 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Total registros unidos: 1698
+2026-02-25 17:58:37 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Dataset ordenado cronológicamente (ascendente)
+2026-02-25 17:58:37 | INFO | preprocesado.run_preprocesado | 
+[PREPROCESADO] Inicio de saneamiento base del dataframe
+2026-02-25 17:58:37 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Registros tras eliminar contenidos nulos: 1695
+2026-02-25 17:58:37 | INFO | preprocesado.run_preprocesado | 
+[PREPROCESADO] Inicio de filtro de relevancia temática
+2026-02-25 17:58:38 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Relevantes: 1453 | A revisar: 242
+2026-02-25 17:58:38 | INFO | preprocesado.run_preprocesado | 
+[PREPROCESADO] Inicio de deduplicación de datasets
+2026-02-25 17:58:38 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cantidad de duplicados relevantes eliminados: 24
+2026-02-25 17:58:38 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cantidad de duplicados no relevantes eliminados: 39
+2026-02-25 17:58:38 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Datasets exportados correctamente

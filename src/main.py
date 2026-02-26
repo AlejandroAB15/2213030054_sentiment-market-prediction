@@ -9,9 +9,9 @@ def main():
     setup_logger()
 
     #run_adquisicion()
-    #run_preprocesado()
+    run_preprocesado()
     #run_clasificacion()
-    run_prediccion()
+    #run_prediccion()
 
 
 if __name__ == "__main__":
