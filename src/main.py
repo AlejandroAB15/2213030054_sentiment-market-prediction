@@ -10,7 +10,7 @@ def main():
 
     #run_adquisicion()
     #run_preprocesado()
-    #run_clasificacion()
+    run_clasificacion()
     run_prediccion()
 
 

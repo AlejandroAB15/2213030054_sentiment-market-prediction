@@ -96,7 +96,6 @@ def build_dataset_prediccion(
         "fecha",
         "fuente",
         "sentimiento_label",
-        "sentimiento_score",
         "close_sp500_t",
         "close_sp500_t7",
         "close_nasdaq_t",
