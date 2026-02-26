@@ -3,35 +3,39 @@ import requests
 import re
 import pandas as pd
 from pathlib import Path
+from pysentimiento import create_analyzer
+from sklearn.metrics import classification_report, accuracy_score, confusion_matrix
 
 MODEL = "llama3.1:8b"
-
 
 def clasificar_llama(texto: str):
 
     prompt = f"""
-    Eres un analista económico cuantitativo.
+Eres un analista económico.
 
-    Tu tarea es clasificar el impacto económico esperado sobre mercados financieros
-    derivado EXCLUSIVAMENTE de acciones, políticas, decisiones regulatorias,
-    fiscales o comerciales descritas en el texto.
+Analiza el siguiente texto periodístico y clasifica el impacto económico esperado 
+sobre mercados financieros derivado de las acciones, políticas o decisiones descritas.
 
-    Procedimiento obligatorio:
+Criterios:
 
-    1. Identifica si existe una acción económica concreta (ej. aranceles, impuestos,
-    regulaciones, acuerdos comerciales, sanciones, estímulos).
-    2. Si NO existe una acción económica concreta → NEU.
-    3. Si existe acción económica que aumenta costos, riesgo o incertidumbre → NEG.
-    4. Si existe acción económica que reduce costos, riesgo o estimula actividad → POS.
-    5. No clasifiques como NEG solo por polémica, escándalo o tono negativo.
-    6. Ignora lenguaje editorial, satírico u ofensivo.
+- Si las acciones descritas aumentan riesgo económico, tensiones comerciales, 
+  incertidumbre regulatoria o costos → NEG
+- Si las acciones descritas estimulan inversión, reducen riesgo o favorecen 
+  actividad económica → POS
+- Si el texto es principalmente editorial, satírico, opinativo o no describe 
+  una acción económica concreta → NEU
+- No inferir impacto económico únicamente por tono negativo o polémico
+- Ignorar lenguaje figurativo u ofensivo
 
-    Responde únicamente en formato JSON:
-    {{"label": "POS"}}
+No evalúes ideología ni postura política.
+No agregues explicación.
 
-    Texto:
-    {texto}
-    """
+Responde únicamente en formato JSON:
+{{"label": "POS"}}
+
+Texto:
+{texto}
+"""
 
     response = requests.post(
         "http://localhost:11434/api/generate",
@@ -45,134 +49,103 @@ def clasificar_llama(texto: str):
 
     raw = response.json()["response"].strip()
 
-    # Extraer JSON aunque venga con texto adicional
     match = re.search(r'\{.*?\}', raw, re.DOTALL)
 
     if match:
         json_str = match.group(0)
         try:
-            label = json.loads(json_str)["label"]
+            return json.loads(json_str)["label"]
         except:
-            label = "ERROR"
+            return "ERROR"
     else:
-        label = "ERROR"
-
-    return label, raw
+        return "ERROR"
 
 
-def run_piloto():
+# =====================================================
+# ROBERTUITO
+# =====================================================
+def clasificar_robertuito(analyzer, texto: str):
+    result = analyzer.predict(texto)
+    return result.output
+
+
+# =====================================================
+# MAIN
+# =====================================================
+def run_comparativo():
 
     print("\n" + "="*80)
-    print("INICIO PILOTO LLAMA 3.1 8B")
+    print("COMPARATIVO FINAL: LLAMA vs ROBERTUITO")
     print("="*80 + "\n")
 
+    analyzer = create_analyzer(task="sentiment", lang="es")
+
     input_path = Path("data/piloto_trump_impacto.json")
-    output_path = Path("data/piloto_trump_resultados.json")
 
     with open(input_path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    print(f"Total noticias a evaluar: {len(data)}\n")
+    manual_labels = []
+    llama_labels = []
+    robertuito_labels = []
 
-    for i, registro in enumerate(data, start=1):
-
-        print("-"*60)
-        print(f"Procesando noticia {i} de {len(data)} (ID: {registro['id']})")
-        print("-"*60)
-
-        texto = registro["contenido"]
-
-        etiqueta_modelo, respuesta_cruda = clasificar_llama(texto)
-
-        registro["etiqueta_modelo"] = etiqueta_modelo
-        registro["respuesta_modelo"] = respuesta_cruda
-
-        print(f"Etiqueta modelo: {etiqueta_modelo}\n")
-
-    # Guardar resultados
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-
-    print("\n" + "="*80)
-    print("RESULTADOS GUARDADOS")
-    print("="*80 + "\n")
-
-    analizar_resultados(output_path)
-
-
-def analizar_resultados(path):
-
-    print("="*80)
-    print("ANÁLISIS DE RESULTADOS")
-    print("="*80)
-
-    df = pd.read_json(path)
-
-    # Mapear etiquetas manuales
     map_manual = {
         "POSITIVO": "POS",
         "NEGATIVO": "NEG",
         "NEUTRO": "NEU"
     }
 
-    df["etiqueta_manual_mapeada"] = df["etiqueta"].map(map_manual)
+    for i, registro in enumerate(data, start=1):
 
-    df["acierto"] = (
-        df["etiqueta_manual_mapeada"] == df["etiqueta_modelo"]
-    ).astype(int)
+        print(f"Procesando {i}/{len(data)}")
 
-    accuracy = df["acierto"].mean()
+        texto = registro["contenido"]
 
-    print(f"\nAccuracy: {round(accuracy, 4)}\n")
+        manual = map_manual[registro["etiqueta"]]
+        llama = clasificar_llama(texto)
+        robertuito = clasificar_robertuito(analyzer, texto)
 
-    print("Distribución manual:")
-    print(df["etiqueta_manual_mapeada"].value_counts(), "\n")
-
-    print("Distribución modelo:")
-    print(df["etiqueta_modelo"].value_counts(), "\n")
-
-    print("Total ERROR:", (df["etiqueta_modelo"] == "ERROR").sum(), "\n")
+        manual_labels.append(manual)
+        llama_labels.append(llama)
+        robertuito_labels.append(robertuito)
 
     # ==========================
-    # MATRIZ DE CONFUSIÓN
+    # MÉTRICAS
     # ==========================
 
-    print("="*80)
-    print("MATRIZ DE CONFUSIÓN")
-    print("="*80)
-
-    confusion = pd.crosstab(
-        df["etiqueta_manual_mapeada"],
-        df["etiqueta_modelo"],
-        rownames=["Manual"],
-        colnames=["Modelo"]
-    )
-
-    print(confusion, "\n")
-
-    # ==========================
-    # ERRORES DETALLADOS
-    # ==========================
-
-    print("="*80)
-    print("ERRORES DETECTADOS")
+    print("\n" + "="*80)
+    print("RESULTADOS")
     print("="*80)
 
-    errores = df[df["acierto"] == 0]
+    # Accuracy
+    acc_llama = accuracy_score(manual_labels, llama_labels)
+    acc_robertuito = accuracy_score(manual_labels, robertuito_labels)
 
-    if len(errores) == 0:
-        print("No hay errores.")
-    else:
-        for _, row in errores.iterrows():
-            print("-"*60)
-            print(f"ID: {row['id']}")
-            print(f"Manual: {row['etiqueta_manual_mapeada']}")
-            print(f"Modelo: {row['etiqueta_modelo']}")
-            print("-"*60)
-            print("Respuesta cruda del modelo:")
-            print(row["respuesta_modelo"])
-            print("\n")
+    print(f"\nAccuracy Llama: {round(acc_llama,4)}")
+    print(f"Accuracy Robertuito: {round(acc_robertuito,4)}")
+
+    # Classification report
+    print("\n" + "="*80)
+    print("REPORTE DETALLADO LLAMA")
+    print("="*80)
+    print(classification_report(manual_labels, llama_labels))
+
+    print("\n" + "="*80)
+    print("REPORTE DETALLADO ROBERTUITO")
+    print("="*80)
+    print(classification_report(manual_labels, robertuito_labels))
+
+    # Matriz de confusión
+    print("\n" + "="*80)
+    print("MATRIZ DE CONFUSIÓN LLAMA")
+    print("="*80)
+    print(confusion_matrix(manual_labels, llama_labels))
+
+    print("\n" + "="*80)
+    print("MATRIZ DE CONFUSIÓN ROBERTUITO")
+    print("="*80)
+    print(confusion_matrix(manual_labels, robertuito_labels))
 
 
 if __name__ == "__main__":
-    run_piloto()
+    run_comparativo()
