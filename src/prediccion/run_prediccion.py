@@ -3,6 +3,7 @@ from utils.logger import get_logger
 from utils.logging_utils import log_and_print
 from prediccion.buildDF_bursatil import build_dataset_prediccion
 from prediccion.componentes_modelo import calcular_componentes_modelo
+import pandas as pd
 
 def run_prediccion():
 
@@ -16,6 +17,11 @@ def run_prediccion():
         raws_path=raws_path
     )
 
+    # df_final.to_excel(
+    #     "data/resultados/dataset_enriquecido.xlsx",
+    #     index=False
+    # )
+
     df_sp500_semana = calcular_componentes_modelo(
         df=df_final,
         indice_base="sp500",
@@ -23,9 +29,6 @@ def run_prediccion():
         n_dias=7,
         ventana=7
     )
-
-    print(df_sp500_semana.head(10))
-    print(df_sp500_semana[["T1", "T2", "T3"]].describe())
 
     df_nasdaq_mes = calcular_componentes_modelo(
         df=df_final,
@@ -43,3 +46,8 @@ def run_prediccion():
         ventana=90
     )
 
+    # with pd.ExcelWriter("data/resultados/modelo_componentes.xlsx",
+    #                 engine="openpyxl") as writer:
+    #     df_sp500_semana.to_excel(writer, sheet_name="sp500_semana", index=False)
+    #     df_nasdaq_mes.to_excel(writer, sheet_name="nasdaq_mes", index=False)
+    #     df_dji_trimestre.to_excel(writer, sheet_name="dji_trimestre", index=False)
