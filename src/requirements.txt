@@ -26,6 +26,7 @@ datasets==4.5.0
 debugpy==1.8.19
 decorator==5.2.1
 dill==0.4.0
+dnspython==2.8.0
 emoji==2.15.0
 et_xmlfile==2.0.0
 executing==2.2.1
@@ -45,6 +46,7 @@ ipython==9.9.0
 ipython_pygments_lexers==1.1.1
 jedi==0.19.2
 Jinja2==3.1.6
+joblib==1.5.3
 jupyter_client==8.8.0
 jupyter_core==5.9.1
 kiwisolver==1.4.9
@@ -80,6 +82,7 @@ pycparser==3.0
 pydantic==2.12.5
 pydantic_core==2.41.5
 Pygments==2.19.2
+pymongo==4.16.0
 pyparsing==3.3.2
 pysentimiento==0.7.3
 python-dateutil==2.9.0.post0
@@ -90,6 +93,8 @@ regex==2026.1.15
 requests==2.32.5
 rich==14.3.2
 safetensors==0.7.0
+scikit-learn==1.8.0
+scipy==1.17.1
 setuptools==80.9.0
 shellingham==1.5.4
 six==1.17.0
@@ -102,6 +107,7 @@ srsly==2.5.2
 stack-data==0.6.3
 sympy==1.13.1
 thinc==8.3.10
+threadpoolctl==3.6.0
 tokenizers==0.22.2
 torch==2.6.0+cu124
 tornado==6.5.4
