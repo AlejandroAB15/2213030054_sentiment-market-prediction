@@ -4,10 +4,12 @@ from utils.logging_utils import log_and_print
 from prediccion.buildDF_bursatil import build_dataset_prediccion
 from prediccion.componentes_modelo import calcular_componentes_modelo
 import pandas as pd
+from persistencia.mongo_uploader import upload_to_mongo
 
 def run_prediccion():
 
     logger = get_logger(__name__)
+    UPLOAD_TO_MONGO = True
 
     dataset_path = Path("data/resultados/dataset_clasificado.json")
     raws_path = Path("data/raws")
@@ -17,10 +19,12 @@ def run_prediccion():
         raws_path=raws_path
     )
 
-    # df_final.to_excel(
-    #     "data/resultados/dataset_enriquecido.xlsx",
-    #     index=False
-    # )
+    if UPLOAD_TO_MONGO:
+        upload_to_mongo(
+            df_final=df_final,
+            ruta_relevantes=Path("data/procesados/dataset_relevante.json"),
+            ruta_no_relevantes=Path("data/procesados/dataset_no_relevante.json"),
+        )
 
     df_sp500_semana = calcular_componentes_modelo(
         df=df_final,

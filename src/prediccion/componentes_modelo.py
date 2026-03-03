@@ -57,7 +57,7 @@ def calcular_componentes_modelo(
         window=ventana,
         min_periods=1
     ).mean()
-
+#Cambiar por max de dataset
     max_historico = df_intervalo[close_t_col].max()
 
     T1 = y_i / (max_historico + epsilon)
@@ -101,6 +101,7 @@ def calcular_componentes_modelo(
         min_periods=ventana
     ).std()
 
+#Todos los valores del historico
     T3 = promedio_i / (desviacion_i + 1e-8)
 
     # Resultado
