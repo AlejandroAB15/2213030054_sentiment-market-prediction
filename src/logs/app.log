@@ -280,3 +280,34 @@
 2026-03-02 19:52:04 | INFO | persistencia.mongo_uploader | Reemplazando colección 'articulos'...
 2026-03-02 19:52:09 | INFO | persistencia.mongo_uploader | Actualizando estadísticas generales del dataset...
 2026-03-02 19:52:09 | INFO | persistencia.mongo_uploader | Carga a MongoDB finalizada correctamente.
+2026-03-02 21:52:07 | INFO | preprocesado.run_preprocesado | 
+[PREPROCESADO] Inicio del pipeline de preprocesamiento
+2026-03-02 21:52:07 | INFO | preprocesado.run_preprocesado | 
+[PREPROCESADO] Inicio unión de datasets
+2026-03-02 21:52:07 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cargando fuente: infobae
+2026-03-02 21:52:07 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Registros cargados (infobae): 273
+2026-03-02 21:52:07 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cargando fuente: el_financiero
+2026-03-02 21:52:07 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Registros cargados (el_financiero): 522
+2026-03-02 21:52:07 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cargando fuente: el_pais
+2026-03-02 21:52:07 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Registros cargados (el_pais): 630
+2026-03-02 21:52:07 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cargando fuente: el_universal
+2026-03-02 21:52:07 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Registros cargados (el_universal): 273
+2026-03-02 21:52:07 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Total registros unidos: 1698
+2026-03-02 21:52:07 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Dataset ordenado cronológicamente (ascendente)
+2026-03-02 21:52:07 | INFO | preprocesado.run_preprocesado | 
+[PREPROCESADO] Inicio de saneamiento base del dataframe
+2026-03-02 21:52:07 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Registros tras eliminar contenidos nulos: 1695
+2026-03-02 21:52:07 | INFO | preprocesado.run_preprocesado | 
+[PREPROCESADO] Inicio de filtro de relevancia temática
+2026-03-02 21:52:07 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Relevantes: 1453 | A revisar: 242
+2026-03-02 21:52:07 | INFO | preprocesado.run_preprocesado | 
+[PREPROCESADO] Inicio de deduplicación de datasets
+2026-03-02 21:52:07 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cantidad de duplicados relevantes eliminados: 24
+2026-03-02 21:52:07 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Cantidad de duplicados no relevantes eliminados: 39
+2026-03-02 21:52:07 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Datasets exportados correctamente
+2026-03-02 21:52:07 | INFO | preprocesado.run_preprocesado | [PREPROCESADO] Resumen estructurado generado
+2026-03-02 21:52:08 | INFO | persistencia.mongo_uploader | Iniciando transformación del DataFrame...
+2026-03-02 21:52:08 | INFO | persistencia.mongo_uploader | Total de documentos preparados para insertar: 1429
+2026-03-02 21:52:08 | INFO | persistencia.mongo_uploader | Reemplazando colección 'articulos'...
+2026-03-02 21:52:14 | INFO | persistencia.mongo_uploader | Actualizando estadísticas generales del dataset...
+2026-03-02 21:52:14 | INFO | persistencia.mongo_uploader | Carga a MongoDB finalizada correctamente.

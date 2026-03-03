@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 import json
 import os
@@ -143,3 +143,17 @@ def upload_to_mongo(
     finally:
         if cliente:
             cliente.close()
+
+def upload_preprocesado(resumen: dict):
+
+    client = _conectar()
+    db = client["trabajo_terminal"]
+
+    collection = db["estadisticas_preprocesado"]
+
+    documento = {
+        **resumen,
+        "fecha_actualizacion": datetime.now(timezone.utc)
+    }
+
+    collection.replace_one({}, documento, upsert=True)

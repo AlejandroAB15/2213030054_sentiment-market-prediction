@@ -13,6 +13,8 @@ def run_preprocesado():
 
     log_and_print(logger, "\n[PREPROCESADO] Inicio del pipeline de preprocesamiento")
 
+    resumen = {}
+
     sources = {
         "infobae": "data/raws/infobae.json",
         "el_financiero": "data/raws/el_financiero.json",
@@ -20,11 +22,36 @@ def run_preprocesado():
         "el_universal": "data/raws/el_universal.json",
     }
 
-    df = unir_datasets(sources, logger)
+    df_union = unir_datasets(sources, logger)
 
-    df = aplicar_saneamiento_base(df, logger)
+    total_original = len(df_union)
 
-    df_relevantes, df_no_relevantes = filtrar_relevancia_trump(df, logger)
+    resumen["union"] = {
+        "total_original": total_original,
+        "por_fuente": df_union["fuente"].value_counts().to_dict()
+    }
+
+    total_antes_saneamiento = len(df_union)
+
+    df_saneado = aplicar_saneamiento_base(df_union, logger)
+
+    resumen["saneamiento"] = {
+        "registros_validos": len(df_saneado),
+        "registros_eliminados": total_antes_saneamiento - len(df_saneado)
+    }
+
+    df_relevantes, df_no_relevantes = filtrar_relevancia_trump(
+        df_saneado,
+        logger
+    )
+
+    resumen["relevancia"] = {
+        "relevantes": len(df_relevantes),
+        "no_relevantes": len(df_no_relevantes)
+    }
+
+    antes_rel = len(df_relevantes)
+    antes_no_rel = len(df_no_relevantes)
 
     df_relevantes, df_no_relevantes = deduplicar_datasets(
         df_relevantes,
@@ -32,17 +59,33 @@ def run_preprocesado():
         logger
     )
 
+    resumen["deduplicacion"] = {
+        "duplicados_relevantes": antes_rel - len(df_relevantes),
+        "duplicados_no_relevantes": antes_no_rel - len(df_no_relevantes)
+    }
+
+    total_final_relevantes = len(df_relevantes)
+
+    porcentaje_reduccion_total = (
+        (total_original - total_final_relevantes)
+        / total_original
+        * 100
+    )
+
+    resumen["resumen_final"] = {
+        "total_final_relevantes": total_final_relevantes,
+        "porcentaje_reduccion_total": round(porcentaje_reduccion_total, 2)
+    }
+
     columnas_aux = [
         "menciona_trump_titulo",
         "menciones_trump_body",
         "es_relevante_trump"
     ]
 
-    # Se quitan las columnas auxiliares
     df_relevantes = df_relevantes.drop(columns=columnas_aux, errors="ignore")
     df_no_relevantes = df_no_relevantes.drop(columns=columnas_aux, errors="ignore")
 
-    # 6. Formato final de fecha (dd-mm-aaaa)
     df_relevantes["fecha"] = df_relevantes["fecha"].dt.strftime("%d-%m-%Y")
     df_no_relevantes["fecha"] = df_no_relevantes["fecha"].dt.strftime("%d-%m-%Y")
 
@@ -66,3 +109,6 @@ def run_preprocesado():
         )
 
     log_and_print(logger, "[PREPROCESADO] Datasets exportados correctamente")
+    log_and_print(logger, "[PREPROCESADO] Resumen estructurado generado")
+
+    return df_relevantes, df_no_relevantes, resumen

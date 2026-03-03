@@ -7,8 +7,7 @@ import pandas as pd
 from persistencia.mongo_uploader import upload_to_mongo
 
 def run_prediccion():
-
-    logger = get_logger(__name__)
+    
     UPLOAD_TO_MONGO = True
 
     dataset_path = Path("data/resultados/dataset_clasificado.json")
@@ -18,16 +17,13 @@ def run_prediccion():
         dataset_path=dataset_path,
         raws_path=raws_path
     )
-
-    if UPLOAD_TO_MONGO:
-        upload_to_mongo(
-            df_final=df_final,
-            ruta_relevantes=Path("data/procesados/dataset_relevante.json"),
-            ruta_no_relevantes=Path("data/procesados/dataset_no_relevante.json"),
-        )
+    
+    df_model_valido = df_final[
+        df_final["sentimiento_label"].isin(["POS", "NEG", "NEU"])
+    ].copy()
 
     df_sp500_semana = calcular_componentes_modelo(
-        df=df_final,
+        df=df_model_valido,
         indice_base="sp500",
         fecha_inicio="2025-03-10",
         n_dias=7,
@@ -35,7 +31,7 @@ def run_prediccion():
     )
 
     df_nasdaq_mes = calcular_componentes_modelo(
-        df=df_final,
+        df=df_model_valido,
         indice_base="nasdaq",
         fecha_inicio="2025-06-01",
         n_dias=30,
@@ -43,7 +39,7 @@ def run_prediccion():
     )
 
     df_dji_trimestre = calcular_componentes_modelo(
-        df=df_final,
+        df=df_model_valido,
         indice_base="dji",
         fecha_inicio="2025-02-01",
         n_dias=90,
@@ -55,3 +51,5 @@ def run_prediccion():
     #     df_sp500_semana.to_excel(writer, sheet_name="sp500_semana", index=False)
     #     df_nasdaq_mes.to_excel(writer, sheet_name="nasdaq_mes", index=False)
     #     df_dji_trimestre.to_excel(writer, sheet_name="dji_trimestre", index=False)
+
+    return df_final

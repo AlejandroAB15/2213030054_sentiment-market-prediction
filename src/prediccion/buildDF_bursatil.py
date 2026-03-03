@@ -1,7 +1,7 @@
 from pathlib import Path
 import pandas as pd
 
-def _load_index(path: Path, prefix: str) -> pd.DataFrame:
+def _load_indice(path: Path, prefix: str) -> pd.DataFrame:
     df = pd.read_csv(path, skiprows=[1])
     df.columns = df.columns.str.strip()
 
@@ -20,8 +20,7 @@ def _load_index(path: Path, prefix: str) -> pd.DataFrame:
 
     return df.reset_index(drop=True)
 
-
-def _merge_index(
+def _merge_indice(
     df_base: pd.DataFrame,
     df_index: pd.DataFrame,
     prefix: str
@@ -59,10 +58,6 @@ def _merge_index(
 
     return df_out
 
-from pathlib import Path
-import pandas as pd
-
-
 def build_dataset_prediccion(
     dataset_path: Path,
     raws_path: Path
@@ -82,13 +77,13 @@ def build_dataset_prediccion(
     df_model["fecha_t"] = df_model["fecha"]
     df_model["fecha_t7"] = df_model["fecha"] + pd.Timedelta(days=7)
 
-    df_sp500 = _load_index(raws_path / "SP500_historico.csv", "sp500")
-    df_nasdaq = _load_index(raws_path / "NASDAQ_historico.csv", "nasdaq")
-    df_dji = _load_index(raws_path / "DJI_historico.csv", "dji")
+    df_sp500 = _load_indice(raws_path / "SP500_historico.csv", "sp500")
+    df_nasdaq = _load_indice(raws_path / "NASDAQ_historico.csv", "nasdaq")
+    df_dji = _load_indice(raws_path / "DJI_historico.csv", "dji")
 
-    df_model = _merge_index(df_model, df_sp500, "sp500")
-    df_model = _merge_index(df_model, df_nasdaq, "nasdaq")
-    df_model = _merge_index(df_model, df_dji, "dji")
+    df_model = _merge_indice(df_model, df_sp500, "sp500")
+    df_model = _merge_indice(df_model, df_nasdaq, "nasdaq")
+    df_model = _merge_indice(df_model, df_dji, "dji")
 
     final_columns = [
         "titulo",
