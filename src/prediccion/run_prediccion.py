@@ -7,8 +7,6 @@ import pandas as pd
 from persistencia.mongo_uploader import upload_to_mongo
 
 def run_prediccion():
-    
-    UPLOAD_TO_MONGO = True
 
     dataset_path = Path("data/resultados/dataset_clasificado.json")
     raws_path = Path("data/raws")
@@ -16,6 +14,11 @@ def run_prediccion():
     df_final = build_dataset_prediccion(
         dataset_path=dataset_path,
         raws_path=raws_path
+    )
+
+    df_final.to_excel(
+        "data/resultados/dataset_enriquecido.xlsx",
+        index=False
     )
     
     df_model_valido = df_final[
@@ -46,10 +49,10 @@ def run_prediccion():
         ventana=90
     )
 
-    # with pd.ExcelWriter("data/resultados/modelo_componentes.xlsx",
-    #                 engine="openpyxl") as writer:
-    #     df_sp500_semana.to_excel(writer, sheet_name="sp500_semana", index=False)
-    #     df_nasdaq_mes.to_excel(writer, sheet_name="nasdaq_mes", index=False)
-    #     df_dji_trimestre.to_excel(writer, sheet_name="dji_trimestre", index=False)
+    with pd.ExcelWriter("data/resultados/modelo_componentes.xlsx",
+                    engine="openpyxl") as writer:
+        df_sp500_semana.to_excel(writer, sheet_name="sp500_semana", index=False)
+        df_nasdaq_mes.to_excel(writer, sheet_name="nasdaq_mes", index=False)
+        df_dji_trimestre.to_excel(writer, sheet_name="dji_trimestre", index=False)
 
     return df_final

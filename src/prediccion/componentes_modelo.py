@@ -57,8 +57,8 @@ def calcular_componentes_modelo(
         window=ventana,
         min_periods=1
     ).mean()
-#Cambiar por max de dataset
-    max_historico = df_intervalo[close_t_col].max()
+    
+    max_historico = df[close_t_col].max()
 
     T1 = y_i / (max_historico + epsilon)
 
@@ -75,33 +75,10 @@ def calcular_componentes_modelo(
     T2 = polaridad_i / distancia
 
     # 3er término - Componente estadística
+    promedio_i = df[close_t_col].mean()
 
-    """ 
-    promedio_i = df_intervalo[close_t_col].rolling(
-        window=ventana,
-        min_periods=1
-    ).mean()
+    desviacion_i = df[close_t_col].std()
 
-    desviacion_i = df_intervalo[close_t_col].rolling(
-        window=ventana,
-        min_periods=1
-    ).std()
-
-    desviacion_i = desviacion_i.fillna(0)
-
-    T3 = promedio_i / (desviacion_i + epsilon) 
-    """
-    promedio_i = df_intervalo[close_t_col].rolling(
-        window=ventana,
-        min_periods=ventana
-    ).mean()
-
-    desviacion_i = df_intervalo[close_t_col].rolling(
-        window=ventana,
-        min_periods=ventana
-    ).std()
-
-#Todos los valores del historico
     T3 = promedio_i / (desviacion_i + 1e-8)
 
     # Resultado
@@ -113,5 +90,13 @@ def calcular_componentes_modelo(
         "T2": T2,
         "T3": T3,
     })
+
+    resultado = (
+        resultado
+        .groupby("fecha", as_index=False)
+        .mean(numeric_only=True)
+        .sort_values("fecha")
+        .reset_index(drop=True)
+    )
 
     return resultado

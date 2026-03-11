@@ -9,13 +9,13 @@ from persistencia.mongo_uploader import (
     upload_to_mongo
 )
 
-UPLOAD_TO_MONGO = True
+UPLOAD_TO_MONGO = False
 
 def main():
     setup_logger()
 
     # run_adquisicion()
-    _, _, resumen_preprocesado = run_preprocesado()
+    #_, _, resumen_preprocesado = run_preprocesado()
     # run_clasificacion()
     df_final = run_prediccion()
 
