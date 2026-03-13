@@ -1,10 +1,7 @@
 from pathlib import Path
-from utils.logger import get_logger
-from utils.logging_utils import log_and_print
-from prediccion.buildDF_bursatil import build_dataset_prediccion
-from prediccion.componentes_modelo import calcular_componentes_modelo
 import pandas as pd
-from persistencia.mongo_uploader import upload_to_mongo
+from prediccion.buildDF_bursatil import build_dataset_prediccion
+from prediccion.evaluacion_modelos import ( evaluar_modelos_indice, construir_tabla_comparativa )
 
 def run_prediccion():
 
@@ -16,43 +13,44 @@ def run_prediccion():
         raws_path=raws_path
     )
 
-    df_final.to_excel(
-        "data/resultados/dataset_enriquecido.xlsx",
-        index=False
-    )
-    
-    df_model_valido = df_final[
-        df_final["sentimiento_label"].isin(["POS", "NEG", "NEU"])
-    ].copy()
+    # Para eliminar registros clasificados con error
+    df_model_valido = df_final[df_final["sentimiento_label"].isin(["POS","NEG","NEU"])].copy()
 
-    df_sp500_semana = calcular_componentes_modelo(
-        df=df_model_valido,
-        indice_base="sp500",
-        fecha_inicio="2025-03-10",
-        n_dias=7,
-        ventana=7
-    )
+    indices = ["dji", "nasdaq", "sp500"]
 
-    df_nasdaq_mes = calcular_componentes_modelo(
-        df=df_model_valido,
-        indice_base="nasdaq",
-        fecha_inicio="2025-06-01",
-        n_dias=30,
-        ventana=30
-    )
+    output_file = "data/resultados/comparativo_indices.xlsx"
 
-    df_dji_trimestre = calcular_componentes_modelo(
-        df=df_model_valido,
-        indice_base="dji",
-        fecha_inicio="2025-02-01",
-        n_dias=90,
-        ventana=90
-    )
+    with pd.ExcelWriter(output_file, engine="openpyxl") as writer:
 
-    with pd.ExcelWriter("data/resultados/modelo_componentes.xlsx",
-                    engine="openpyxl") as writer:
-        df_sp500_semana.to_excel(writer, sheet_name="sp500_semana", index=False)
-        df_nasdaq_mes.to_excel(writer, sheet_name="nasdaq_mes", index=False)
-        df_dji_trimestre.to_excel(writer, sheet_name="dji_trimestre", index=False)
+        for indice in indices:
+
+            resultado = evaluar_modelos_indice(
+                df_model_valido,
+                indice
+            )
+
+            tabla_futuro = construir_tabla_comparativa(
+                resultado["general_con_futuro"],
+                resultado["especifico_con_futuro"],
+                indice
+            )
+
+            tabla_futuro.to_excel(
+                writer,
+                sheet_name=f"{indice}_con_futuro",
+                index=False
+            )
+
+            tabla_sin_futuro = construir_tabla_comparativa(
+                resultado["general_sin_futuro"],
+                resultado["especifico_sin_futuro"],
+                indice
+            )
+
+            tabla_sin_futuro.to_excel(
+                writer,
+                sheet_name=f"{indice}_sin_futuro",
+                index=False
+            )
 
     return df_final
