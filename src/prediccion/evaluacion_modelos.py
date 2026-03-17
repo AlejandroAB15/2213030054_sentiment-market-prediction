@@ -27,7 +27,6 @@ def graficar_modelo(df, real_col, pred_col, titulo):
 
     plt.figure(figsize=(12,6))
 
-    # Datos del índice
     plt.plot(
         df["fecha"],
         df[real_col],
@@ -36,7 +35,6 @@ def graficar_modelo(df, real_col, pred_col, titulo):
         label="Datos reales"
     )
 
-    # Predicción de entrenamiento
     plt.plot(
         df_train["fecha"],
         df_train[pred_col],
@@ -45,7 +43,6 @@ def graficar_modelo(df, real_col, pred_col, titulo):
         label="Predicción entrenamiento"
     )
 
-    # Predicción de datos de prueba
     plt.plot(
         df_test["fecha"],
         df_test[pred_col],
@@ -64,7 +61,6 @@ def graficar_modelo(df, real_col, pred_col, titulo):
     plt.tight_layout()
     plt.show()
 
-# Para no usar siempre el mismo periodo histórico
 def seleccionar_periodo_trimestre():
 
     inicio = pd.Timestamp("2025-01-01")
@@ -83,49 +79,7 @@ def seleccionar_periodo_trimestre():
 
     return fecha_inicio.strftime("%Y-%m-%d")
 
-# Generar excel
-def construir_tabla_comparativa(
-    df_general,
-    df_especifico,
-    indice
-):
-
-    close_col = f"close_{indice}_t"
-    close7_col = f"close_{indice}_t7"
-
-    df = pd.DataFrame()
-
-    df["fecha"] = df_general["fecha"]
-
-    df["valor_close"] = df_general[close_col]
-    df["valor_close_7"] = df_general[close7_col]
-
-    df["valor_general"] = df_general["pred_close_modelo"]
-    df["error_general_vs_close"] = (
-        df["valor_general"] - df["valor_close"]
-    )
-
-    df["valor_general_7"] = df_general["pred_close7_modelo"]
-    df["error_general_vs_close7"] = (
-        df["valor_general_7"] - df["valor_close_7"]
-    )
-
-    df["valor_especifico"] = df_especifico["pred_close_modelo"]
-    df["error_especifico_vs_close"] = (
-        df["valor_especifico"] - df["valor_close"]
-    )
-
-    df["valor_especifico_7"] = df_especifico["pred_close7_modelo"]
-    df["error_especifico_vs_close7"] = (
-        df["valor_especifico_7"] - df["valor_close_7"]
-    )
-
-    return df.tail(90)
-
-def evaluar_modelos_indice(
-    df_model_valido: pd.DataFrame,
-    indice: str
-):
+def evaluar_modelos_por_indice(df_model_valido: pd.DataFrame, indice: str):
 
     fecha_inicio = seleccionar_periodo_trimestre()
 
@@ -150,6 +104,11 @@ def evaluar_modelos_indice(
     mejor_error_especifico_con_futuro = float("inf")
     mejor_error_especifico_sin_futuro = float("inf")
 
+    mejor_ventana_general_con_futuro = None
+    mejor_ventana_general_sin_futuro = None
+    mejor_ventana_especifico_con_futuro = None
+    mejor_ventana_especifico_sin_futuro = None
+
     real_col = f"close_{indice}_t7"
 
     for usar_futuro in [True, False]:
@@ -165,8 +124,8 @@ def evaluar_modelos_indice(
 
             if len(df_variables) < 10:
                 continue
-            
-            # Modelo general
+
+            # ---------------- GENERAL ----------------
             df_general = ejecutar_modelo_general(df_variables, indice)
 
             pred_col = "pred_close7_modelo"
@@ -178,19 +137,17 @@ def evaluar_modelos_indice(
             )
 
             if usar_futuro:
-
                 if error_test < mejor_error_general_con_futuro:
                     mejor_error_general_con_futuro = error_test
                     mejor_general_con_futuro = df_general
-
+                    mejor_ventana_general_con_futuro = ventana
             else:
-
                 if error_test < mejor_error_general_sin_futuro:
                     mejor_error_general_sin_futuro = error_test
                     mejor_general_sin_futuro = df_general
+                    mejor_ventana_general_sin_futuro = ventana
 
-            # Modelo especifico
-
+            # ---------------- ESPECIFICO ----------------
             df_especifico = ejecutar_modelo_especifico(df_variables, indice)
 
             error_test = calcular_error_test(
@@ -200,24 +157,21 @@ def evaluar_modelos_indice(
             )
 
             if usar_futuro:
-
                 if error_test < mejor_error_especifico_con_futuro:
                     mejor_error_especifico_con_futuro = error_test
                     mejor_especifico_con_futuro = df_especifico
-
+                    mejor_ventana_especifico_con_futuro = ventana
             else:
-
                 if error_test < mejor_error_especifico_sin_futuro:
                     mejor_error_especifico_sin_futuro = error_test
                     mejor_especifico_sin_futuro = df_especifico
-
-    # Gráficas
+                    mejor_ventana_especifico_sin_futuro = ventana
 
     graficar_modelo(
-    mejor_general_con_futuro,
-    real_col,
-    "pred_close7_modelo",
-    f"{indice.upper()} - modelo CON futuro"
+        mejor_general_con_futuro,
+        real_col,
+        "pred_close7_modelo",
+        f"{indice.upper()} - modelo CON futuro"
     )
 
     graficar_modelo(
@@ -228,8 +182,52 @@ def evaluar_modelos_indice(
     )
 
     return {
-        "general_con_futuro": mejor_general_con_futuro,
-        "general_sin_futuro": mejor_general_sin_futuro,
-        "especifico_con_futuro": mejor_especifico_con_futuro,
-        "especifico_sin_futuro": mejor_especifico_sin_futuro
+        "general_con_futuro": {
+            "df": mejor_general_con_futuro,
+            "mape": mejor_error_general_con_futuro,
+            "ventana": mejor_ventana_general_con_futuro
+        },
+        "general_sin_futuro": {
+            "df": mejor_general_sin_futuro,
+            "mape": mejor_error_general_sin_futuro,
+            "ventana": mejor_ventana_general_sin_futuro
+        },
+        "especifico_con_futuro": {
+            "df": mejor_especifico_con_futuro,
+            "mape": mejor_error_especifico_con_futuro,
+            "ventana": mejor_ventana_especifico_con_futuro
+        },
+        "especifico_sin_futuro": {
+            "df": mejor_especifico_sin_futuro,
+            "mape": mejor_error_especifico_sin_futuro,
+            "ventana": mejor_ventana_especifico_sin_futuro
+        }
+    }
+
+def seleccionar_mejor_modelo(resultados, tipo):
+
+    general = resultados[f"general_{tipo}"]
+    especifico = resultados[f"especifico_{tipo}"]
+
+    if general["mape"] < especifico["mape"]:
+        return {
+            "tipo": "general",
+            "mape": general["mape"],
+            "ventana": general["ventana"]
+        }
+    else:
+        return {
+            "tipo": "especifico",
+            "mape": especifico["mape"],
+            "ventana": especifico["ventana"]
+        }
+
+def construir_resumen_indice(indice, resultados):
+
+    return {
+        "indice": indice,
+        "mejor_modelo": {
+            "con_futuro": seleccionar_mejor_modelo(resultados, "con_futuro"),
+            "sin_futuro": seleccionar_mejor_modelo(resultados, "sin_futuro"),
+        }
     }

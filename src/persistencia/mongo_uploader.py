@@ -157,3 +157,96 @@ def upload_preprocesado(resumen: dict):
     }
 
     collection.replace_one({}, documento, upsert=True)
+
+def upload_predicciones(
+    df_modelo: pd.DataFrame,
+    indice: str
+):
+
+    cliente = None
+
+    try:
+        cliente = _conectar()
+        db = cliente["trabajo_terminal"]
+
+        collection = db["predicciones_modelo"]
+
+        documentos = []
+
+        for _, fila in df_modelo.iterrows():
+
+            doc = {
+                "indice": indice,
+                "fecha": pd.to_datetime(fila["fecha"]).to_pydatetime(),
+
+                "segmento": fila["segmento"],
+
+                "close_real": float(fila["close_real"]),
+                "close_real_7": float(fila["close_real_7"]),
+
+                "pred_general": float(fila["pred_general"]),
+                "pred_general_7": float(fila["pred_general_7"]),
+
+                "pred_especifico": float(fila["pred_especifico"]),
+                "pred_especifico_7": float(fila["pred_especifico_7"]),
+
+                "error_general": float(fila["error_general"]),
+                "error_especifico": float(fila["error_especifico"]),
+
+                "fecha_creacion": datetime.utcnow()
+            }
+
+            documentos.append(doc)
+
+        log_and_print(
+            logger,
+            f"Subiendo predicciones para {indice}"
+        )
+
+        collection.delete_many({"indice": indice})
+
+        if documentos:
+            collection.insert_many(documentos)
+
+    except Exception as e:
+        logger.error(f"Error subiendo predicciones: {e}")
+        raise
+
+    finally:
+        if cliente:
+            cliente.close()
+
+def upload_resumen_modelos(resumen_indices: list):
+
+    cliente = None
+
+    try:
+        cliente = _conectar()
+        db = cliente["trabajo_terminal"]
+
+        collection = db["resumen_modelos"]
+
+        documento = {
+            "indices": resumen_indices,
+            "fecha_actualizacion": datetime.utcnow()
+        }
+
+        log_and_print(
+            logger,
+            "Actualizando resumen de modelos..."
+        )
+
+        collection.replace_one({}, documento, upsert=True)
+
+        log_and_print(
+            logger,
+            "Resumen de modelos actualizado correctamente."
+        )
+
+    except Exception as e:
+        logger.error(f"Error subiendo resumen de modelos: {e}")
+        raise
+
+    finally:
+        if cliente:
+            cliente.close()

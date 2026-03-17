@@ -311,3 +311,48 @@
 2026-03-02 21:52:08 | INFO | persistencia.mongo_uploader | Reemplazando colección 'articulos'...
 2026-03-02 21:52:14 | INFO | persistencia.mongo_uploader | Actualizando estadísticas generales del dataset...
 2026-03-02 21:52:14 | INFO | persistencia.mongo_uploader | Carga a MongoDB finalizada correctamente.
+2026-03-16 17:36:48 | INFO | persistencia.mongo_uploader | Subiendo predicciones para dji
+2026-03-16 17:36:49 | INFO | persistencia.mongo_uploader | Subiendo predicciones para nasdaq
+2026-03-16 17:36:50 | INFO | persistencia.mongo_uploader | Subiendo predicciones para sp500
+2026-03-16 17:37:18 | INFO | persistencia.mongo_uploader | Subiendo predicciones para dji
+2026-03-16 17:37:20 | INFO | persistencia.mongo_uploader | Subiendo predicciones para nasdaq
+2026-03-16 17:37:21 | INFO | persistencia.mongo_uploader | Subiendo predicciones para sp500
+2026-03-16 17:38:20 | INFO | persistencia.mongo_uploader | Subiendo predicciones para dji
+2026-03-16 17:38:21 | INFO | persistencia.mongo_uploader | Subiendo predicciones para nasdaq
+2026-03-16 17:38:23 | INFO | persistencia.mongo_uploader | Subiendo predicciones para sp500
+2026-03-16 17:38:35 | INFO | persistencia.mongo_uploader | Subiendo predicciones para dji
+2026-03-16 17:38:36 | INFO | persistencia.mongo_uploader | Subiendo predicciones para nasdaq
+2026-03-16 17:38:38 | INFO | persistencia.mongo_uploader | Subiendo predicciones para sp500
+2026-03-16 17:38:55 | INFO | persistencia.mongo_uploader | Subiendo predicciones para dji
+2026-03-16 17:38:56 | INFO | persistencia.mongo_uploader | Subiendo predicciones para nasdaq
+2026-03-16 17:38:57 | INFO | persistencia.mongo_uploader | Subiendo predicciones para sp500
+2026-03-16 23:47:13 | INFO | persistencia.mongo_uploader | Subiendo predicciones para dji
+2026-03-16 23:47:14 | INFO | persistencia.mongo_uploader | Subiendo predicciones para nasdaq
+2026-03-16 23:47:16 | INFO | persistencia.mongo_uploader | Subiendo predicciones para sp500
+2026-03-16 23:47:17 | INFO | persistencia.mongo_uploader | Actualizando resumen de modelos...
+2026-03-16 23:47:18 | INFO | persistencia.mongo_uploader | Resumen de modelos actualizado correctamente.
+2026-03-17 00:10:42 | INFO | persistencia.mongo_uploader | Subiendo predicciones para dji
+2026-03-17 00:10:43 | INFO | persistencia.mongo_uploader | Subiendo predicciones para nasdaq
+2026-03-17 00:10:44 | INFO | persistencia.mongo_uploader | Subiendo predicciones para sp500
+2026-03-17 00:10:46 | INFO | persistencia.mongo_uploader | Actualizando resumen de modelos...
+2026-03-17 00:10:46 | INFO | persistencia.mongo_uploader | Resumen de modelos actualizado correctamente.
+2026-03-17 00:11:06 | INFO | persistencia.mongo_uploader | Subiendo predicciones para dji
+2026-03-17 00:11:07 | INFO | persistencia.mongo_uploader | Subiendo predicciones para nasdaq
+2026-03-17 00:11:08 | INFO | persistencia.mongo_uploader | Subiendo predicciones para sp500
+2026-03-17 00:11:10 | INFO | persistencia.mongo_uploader | Actualizando resumen de modelos...
+2026-03-17 00:11:10 | INFO | persistencia.mongo_uploader | Resumen de modelos actualizado correctamente.
+2026-03-17 00:12:06 | INFO | persistencia.mongo_uploader | Subiendo predicciones para dji
+2026-03-17 00:12:07 | INFO | persistencia.mongo_uploader | Subiendo predicciones para nasdaq
+2026-03-17 00:12:08 | INFO | persistencia.mongo_uploader | Subiendo predicciones para sp500
+2026-03-17 00:12:10 | INFO | persistencia.mongo_uploader | Actualizando resumen de modelos...
+2026-03-17 00:12:10 | INFO | persistencia.mongo_uploader | Resumen de modelos actualizado correctamente.
+2026-03-17 00:12:26 | INFO | persistencia.mongo_uploader | Subiendo predicciones para dji
+2026-03-17 00:12:27 | INFO | persistencia.mongo_uploader | Subiendo predicciones para nasdaq
+2026-03-17 00:12:29 | INFO | persistencia.mongo_uploader | Subiendo predicciones para sp500
+2026-03-17 00:12:31 | INFO | persistencia.mongo_uploader | Actualizando resumen de modelos...
+2026-03-17 00:12:31 | INFO | persistencia.mongo_uploader | Resumen de modelos actualizado correctamente.
+2026-03-17 00:12:55 | INFO | persistencia.mongo_uploader | Subiendo predicciones para dji
+2026-03-17 00:12:57 | INFO | persistencia.mongo_uploader | Subiendo predicciones para nasdaq
+2026-03-17 00:12:58 | INFO | persistencia.mongo_uploader | Subiendo predicciones para sp500
+2026-03-17 00:12:59 | INFO | persistencia.mongo_uploader | Actualizando resumen de modelos...
+2026-03-17 00:13:00 | INFO | persistencia.mongo_uploader | Resumen de modelos actualizado correctamente.

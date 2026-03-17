@@ -1,7 +1,12 @@
 from pathlib import Path
 import pandas as pd
 from prediccion.buildDF_bursatil import build_dataset_prediccion
-from prediccion.evaluacion_modelos import ( evaluar_modelos_indice, construir_tabla_comparativa )
+from prediccion.evaluacion_modelos import (
+    evaluar_modelos_por_indice,
+    construir_resumen_indice
+)
+from prediccion.construir_DF_resultados import construir_dataset_resultados
+
 
 def run_prediccion():
 
@@ -13,10 +18,15 @@ def run_prediccion():
         raws_path=raws_path
     )
 
-    # Para eliminar registros clasificados con error
-    df_model_valido = df_final[df_final["sentimiento_label"].isin(["POS","NEG","NEU"])].copy()
+    # Para eliminar filas con errores a la hora de clasificar
+    df_model_valido = df_final[
+        df_final["sentimiento_label"].isin(["POS", "NEG", "NEU"])
+    ].copy()
 
     indices = ["dji", "nasdaq", "sp500"]
+
+    resultados_modelos = {}
+    resumen_indices = []
 
     output_file = "data/resultados/comparativo_indices.xlsx"
 
@@ -24,33 +34,29 @@ def run_prediccion():
 
         for indice in indices:
 
-            resultado = evaluar_modelos_indice(
+            resultado = evaluar_modelos_por_indice(
                 df_model_valido,
                 indice
             )
 
-            tabla_futuro = construir_tabla_comparativa(
-                resultado["general_con_futuro"],
-                resultado["especifico_con_futuro"],
+            df_general = resultado["general_con_futuro"]["df"]
+            df_especifico = resultado["especifico_con_futuro"]["df"]
+
+            df_resultados = construir_dataset_resultados(
+                df_general,
+                df_especifico,
                 indice
             )
 
-            tabla_futuro.to_excel(
+            resultados_modelos[indice] = df_resultados
+
+            df_resultados.tail(90).to_excel(
                 writer,
-                sheet_name=f"{indice}_con_futuro",
+                sheet_name=indice,
                 index=False
             )
 
-            tabla_sin_futuro = construir_tabla_comparativa(
-                resultado["general_sin_futuro"],
-                resultado["especifico_sin_futuro"],
-                indice
-            )
+            resumen = construir_resumen_indice(indice, resultado)
+            resumen_indices.append(resumen)
 
-            tabla_sin_futuro.to_excel(
-                writer,
-                sheet_name=f"{indice}_sin_futuro",
-                index=False
-            )
-
-    return df_final
+    return df_final, resultados_modelos, resumen_indices
